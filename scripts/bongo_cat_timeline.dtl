@@ -40,4 +40,23 @@ if {cat_planet.letter_delivered} == "false":
 	bongo_cat: He can be a bit odd but he's very funny \:3
 	VAR {dialog_open} = "closed"
 	[end_timeline]
+if {duck_npc.letter_collected} == "false":
+	bongo_cat: Hey Pearls!
+	player: Hello!! \:)
+	bongo_cat: Did you deliver the letter to the funky cat?
+	player: I did! He's so silly! It was very funny \:3
+	bongo_cat: Haha yeah he's a character for sure!
+	bongo_cat: Would you like to deliver another?
+	player: Yes!! I'm having so much fun! \:)
+	bongo_cat: Fantastic! This one is for the duck, he lives in one of the houses \:)
+	player: I'm on it!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+if {duck_npc.letter_delivered} == "false":
+	bongo_cat: Heya Pearl! Did you deliver the Ducks letter? \:)
+	player: Not just yet! I've been exploring \:3
+	bongo_cat: Oh that sounds fun! Let me know when you've visited the duck~ \:D
+	player: Bye!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"

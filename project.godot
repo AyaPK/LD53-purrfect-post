@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD53"
-run/main_scene="res://nodes/post_office.tscn"
+run/main_scene="res://nodes/world.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
@@ -20,13 +20,14 @@ config/icon="res://icon.png"
 Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 DialogueScript="*res://scripts/dialogue_script.gd"
 States="*res://scripts/states.gd"
+MusicController="*res://autoloads/MusicController.tscn"
 
 [dialogic]
 
 editor/character_preview_mode=1
-editor/current_editor=&"VariablesEditor"
+editor/current_editor=&"Layout"
 editor/current_resources={
-"Character Editor": "res://scripts/bongo_cat.dch",
+"Character Editor": "res://scripts/cat_planet_cat_npc.dch",
 "Timeline Editor": "res://scripts/bongo_cat_timeline.dtl"
 }
 editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "")
@@ -50,25 +51,30 @@ variables={
 "letter_delivered": "false"
 },
 "dialog_open": "closed",
+"duck_npc": {
+"letter_collected": "false",
+"letter_delivered": "false"
+},
 "frog_npc": {
-"letter_delivered": "true",
-"spoken_before": "true"
+"letter_delivered": "false",
+"spoken_before": "false"
 },
 "plot": {
-"been_to_house": "true",
-"first_load": "true"
+"been_to_house": "false",
+"first_load": "false"
 }
 }
 editor/visual_timeline_editor_sidebar=200.0
-layout/layout_scene="res://addons/dialogic/Events/DefaultStyles/RPG_BoxPortrait/DialogicRPGLayout.tscn"
+layout/layout_scene="res://addons/dialogic/Events/DefaultStyles/Default/DialogicDefaultLayout.tscn"
 layout/export_overrides={
 "max_width": "80.0",
-"name_label_color": "Color(0.909804, 0.156863, 0.0588235, 1)",
-"name_label_font_size": "30.0",
-"name_label_use_character_color": "false",
+"name_label_box_modulate": "Color(0.00784314, 0.00784314, 0.00784314, 0)",
+"name_label_color": "Color(1, 1, 1, 1)",
+"name_label_font_size": "12.0",
+"name_label_use_character_color": "true",
 "sizing_mode": "2",
 "text_alignment": "1",
-"text_size": "25.0"
+"text_size": "15.0"
 }
 
 [display]
