@@ -28,10 +28,10 @@ SfxController="*res://autoloads/SFXController.tscn"
 editor/character_preview_mode=0
 editor/current_editor=&"VariablesEditor"
 editor/current_resources={
-"Character Editor": "res://scripts/turtle_npc.dch",
-"Timeline Editor": "res://scripts/turtle_timeline.dtl"
+"Character Editor": "res://scripts/pommy.dch",
+"Timeline Editor": "res://scripts/pommy_npc_text.dtl"
 }
-editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl")
+editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch")
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
 animations/leave_default_wait=true
@@ -63,6 +63,10 @@ variables={
 "plot": {
 "been_to_house": "false",
 "first_load": "false"
+},
+"pommy_npc": {
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "turtle_npc": {
 "letter_collected": "false",

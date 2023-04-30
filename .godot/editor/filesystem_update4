@@ -33,3 +33,12 @@ res://scripts/turtle_timeline.dtl
 res://nodes/duck_house.tscn
 res://nodes/main_village.gd
 res://nodes/duck_house.gd
+res://nodes/turtle_house.tscn
+res://nodes/turtle_house.gd
+res://nodes/pommy.tscn
+res://nodes/pommy_talk_area.gd
+res://scripts/pommy_npc_text.dtl
+res://scripts/pommy.dch
+res://nodes/penguin.tscn
+res://nodes/obake.tscn
+res://nodes/monkey.tscn

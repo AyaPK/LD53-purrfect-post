@@ -289,3 +289,11 @@ limit_left = 9
 limit_top = -240
 limit_right = 400
 limit_bottom = 300
+
+[node name="turtle_house_interior_camera" type="Camera2D" parent="."]
+position = Vector2(246, 182)
+zoom = Vector2(2, 2)
+limit_left = 40
+limit_top = -90
+limit_right = 420
+limit_bottom = 320

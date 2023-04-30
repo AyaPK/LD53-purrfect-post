@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bklnkupgvf7ds"]
+
+[ext_resource type="Texture2D" uid="uid://ctrsjjmc8yyl" path="res://art/obake.png" id="1_m47c0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsn5u"]
+atlas = ExtResource("1_m47c0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvkrs"]
+atlas = ExtResource("1_m47c0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yfbm"]
+atlas = ExtResource("1_m47c0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avyqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsn5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvkrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yfbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvkrs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgxn1"]
+size = Vector2(20, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxcpq"]
+size = Vector2(54, 74)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_avyqu")
+autoplay = "default"
+frame_progress = 0.250741
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_kgxn1")
+
+[node name="talk_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_lxcpq")

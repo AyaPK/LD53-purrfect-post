@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv8ltnjoiu0k2"]
+
+[ext_resource type="Texture2D" uid="uid://7w53hkynn1gh" path="res://art/pomeranian.png" id="1_66eaq"]
+[ext_resource type="Script" path="res://nodes/pommy_talk_area.gd" id="2_dpe8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a2xx"]
+atlas = ExtResource("1_66eaq")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngp5n"]
+atlas = ExtResource("1_66eaq")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri0lq"]
+atlas = ExtResource("1_66eaq")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4w3mw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a2xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngp5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri0lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngp5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wk1se"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puc6d"]
+size = Vector2(40, 53)
+
+[node name="pommy" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -17)
+sprite_frames = SubResource("SpriteFrames_4w3mw")
+autoplay = "default"
+frame_progress = 0.302096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wk1se")
+
+[node name="talk_area" type="Area2D" parent="."]
+script = ExtResource("2_dpe8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_puc6d")
