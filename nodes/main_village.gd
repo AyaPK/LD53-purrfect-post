@@ -21,6 +21,10 @@ func _on_cave_transition_body_entered(body):
 func _on_world_transition_body_entered(body):
 	if body.has_method("player"):
 		States.transition_scene_to_world = true
+		
+func _on_duck_house_transition_body_entered(body):
+	if body.has_method("player"):
+		States.transition_scene_to_duck_house = true
 
 func change_scenes():
 	if States.transition_scene_to_cave_interior:
@@ -29,4 +33,10 @@ func change_scenes():
 	if States.transition_scene_to_world:
 		get_tree().change_scene_to_file("res://nodes/world.tscn")
 		States.finish_changing_scenes("world")
+	if States.transition_scene_to_duck_house:
+		get_tree().change_scene_to_file("res://nodes/duck_house.tscn")
+		States.finish_changing_scenes("duck_house")
+
+
+
 

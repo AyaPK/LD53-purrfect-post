@@ -1,0 +1,27 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(0.305882, 0.662745, 0.00784314, 1),
+"custom_info": {
+"sound_mood_default": "Default",
+"sound_moods": {
+"Default": {
+"name": "Default",
+"pitch_base": 0.8,
+"pitch_variance": 0.02,
+"sound_folder": "res://sounds/tap-a-tap",
+"volume_base": -12.0,
+"volume_variance": 0.0
+}
+},
+"style": ""
+},
+"default_portrait": "",
+"description": "Turtle",
+"display_name": "Turtle",
+"mirror": false,
+"nicknames": ["turtle"],
+"offset": Vector2(0, 0),
+"portraits": {},
+"scale": 1.0
+}

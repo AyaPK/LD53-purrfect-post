@@ -27,3 +27,9 @@ res://autoloads/SFXController.tscn
 res://autoloads/SFXController.gd
 res://scripts/states.gd
 res://autoloads/MusicController.tscn
+res://nodes/turtle_talk.gd
+res://scripts/turtle_npc.dch
+res://scripts/turtle_timeline.dtl
+res://nodes/duck_house.tscn
+res://nodes/main_village.gd
+res://nodes/duck_house.gd

@@ -281,3 +281,11 @@ limit_left = -53
 limit_top = 30
 limit_right = 650
 limit_bottom = 240
+
+[node name="duck_house_interior_camera" type="Camera2D" parent="."]
+position = Vector2(250, 185)
+zoom = Vector2(2, 2)
+limit_left = 9
+limit_top = -240
+limit_right = 400
+limit_bottom = 300

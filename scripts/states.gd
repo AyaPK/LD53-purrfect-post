@@ -5,6 +5,7 @@ var transition_scene_to_post_office = false
 var transition_scene_to_world = false
 var transition_scene_to_main_village = false
 var transition_scene_to_cave_interior = false
+var transition_scene_to_duck_house = false
 var previous_scene = ""
 
 var current_music = ""

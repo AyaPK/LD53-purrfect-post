@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bg2bxvrs01lgb"]
+[gd_scene load_steps=33 format=3 uid="uid://bg2bxvrs01lgb"]
 
 [ext_resource type="Script" path="res://nodes/main_village.gd" id="1_pj564"]
 [ext_resource type="Texture2D" uid="uid://by50a2ghbwser" path="res://art/PathAndObjects.png" id="1_r7qum"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bnye8o7hi0ka5" path="res://art/11_roofs.png" id="7_h28we"]
 [ext_resource type="PackedScene" uid="uid://x4oxo0tsofgk" path="res://nodes/cat_planet_cat.tscn" id="8_nse88"]
 [ext_resource type="Texture2D" uid="uid://owlfsjnhjx5b" path="res://art/signs.png" id="10_0q7uk"]
-[ext_resource type="PackedScene" uid="uid://llw8rxyxflp1" path="res://nodes/duck_npc.tscn" id="15_ewgej"]
+[ext_resource type="PackedScene" uid="uid://d1pyc3onmpu13" path="res://nodes/turtle_npc.tscn" id="13_34bnm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o87ck"]
 texture = ExtResource("1_r7qum")
@@ -1258,6 +1258,9 @@ size = Vector2(25, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qqkl"]
 size = Vector2(59.5, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w28hi"]
+size = Vector2(29, 16)
+
 [node name="main_village" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_pj564")
@@ -1303,6 +1306,10 @@ layer_4/tile_data = PackedInt32Array(-65546, 131080, 9, -10, 131080, 10, -65545,
 [node name="frog_npc" parent="." instance=ExtResource("6_gnfo7")]
 y_sort_enabled = true
 position = Vector2(320, 192)
+
+[node name="turtle_npc" parent="." instance=ExtResource("13_34bnm")]
+position = Vector2(-386, -403)
+scale = Vector2(1.361, 1.361)
 
 [node name="cat_planet_npc_1" parent="." instance=ExtResource("8_nse88")]
 position = Vector2(-296, 160)
@@ -1598,8 +1605,11 @@ position = Vector2(360, 176)
 position = Vector2(246.25, 202)
 shape = SubResource("RectangleShape2D_6qqkl")
 
-[node name="duck_npc" parent="." instance=ExtResource("15_ewgej")]
-position = Vector2(393, 5)
+[node name="duck_house_transition" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="duck_house_transition"]
+position = Vector2(367.5, -43)
+shape = SubResource("RectangleShape2D_w28hi")
 
 [node name="player" parent="." instance=ExtResource("5_p42q1")]
 y_sort_enabled = true
@@ -1607,3 +1617,4 @@ position = Vector2(359, 184)
 
 [connection signal="body_entered" from="cave_transition" to="." method="_on_cave_transition_body_entered"]
 [connection signal="body_entered" from="world_transition" to="." method="_on_world_transition_body_entered"]
+[connection signal="body_entered" from="duck_house_transition" to="." method="_on_duck_house_transition_body_entered"]

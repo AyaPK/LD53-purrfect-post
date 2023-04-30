@@ -1,0 +1,8 @@
+blank
+if {turtle_npc.letter_collected} == "false":
+	player: Hello!!!!
+	turtle_npc: Oh. Hello young one \:) Welcome to the village
+	player: I'm really excited to be here!!
+	turtle_npc: That's great \:) I will rest now, please visit any time
+VAR {dialog_open} = "closed"
+[end_timeline]
