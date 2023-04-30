@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play_main_music()
+	
 	States.current_scene = "main_village"
 	if States.previous_scene == "cave_interior":
 		$player.position.x = States.player_exit_cave_interior_x

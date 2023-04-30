@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	States.current_scene = "post_office_interior"
 	pass # Replace with function body.
 
 

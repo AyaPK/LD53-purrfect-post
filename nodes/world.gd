@@ -3,9 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play_main_music()
+	
 	if Dialogic.VAR.plot.first_load == false:
 		DialogueScript.display_dialog_box("first_time_text")
-	
 	
 	if States.first_load_in:
 		$Node2D/player.position.x = States.player_start_x

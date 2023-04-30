@@ -84,28 +84,6 @@ func _ready():
 	%NameLabelPanel.self_modulate = name_label_box_modulate
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpkyg"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="GDScript" id="GDScript_vx0i6"]
-script/source = "extends Control
-
-func _ready():
-	get_child(0).visibility_changed.connect(_on_child_visibility_changed)
-	_on_child_visibility_changed()
-
-func _on_child_visibility_changed():
-	visible = get_child(0).visible
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3vpc"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
@@ -126,6 +104,28 @@ func _process(delta):
 	else:
 		show()
 		value = Dialogic.Text.get_autoadvance_progress()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpkyg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="GDScript" id="GDScript_vx0i6"]
+script/source = "extends Control
+
+func _ready():
+	get_child(0).visibility_changed.connect(_on_child_visibility_changed)
+	_on_child_visibility_changed()
+
+func _on_child_visibility_changed():
+	visible = get_child(0).visible
 "
 
 [sub_resource type="GDScript" id="GDScript_62nmu"]
@@ -258,35 +258,6 @@ sound_pressed = ExtResource("14")
 sound_hover = ExtResource("11")
 sound_focus = ExtResource("13")
 
-[node name="NameLabelPanel" type="PanelContainer" parent="DefaultStyle"]
-unique_name_in_owner = true
-self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -301.0
-offset_top = -159.0
-offset_right = -182.0
-offset_bottom = -89.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wpkyg")
-script = SubResource("GDScript_vx0i6")
-metadata/_edit_layout_mode = 1
-metadata/_edit_use_custom_anchors = true
-metadata/_edit_group_ = true
-
-[node name="DialogicNode_NameLabel" type="Label" parent="DefaultStyle/NameLabelPanel"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-text = "Name"
-script = ExtResource("3")
-
 [node name="DialogTextPanel" type="PanelContainer" parent="DefaultStyle"]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
@@ -296,9 +267,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -283.0
-offset_top = -63.0
-offset_right = 174.0
+offset_left = -175.0
+offset_top = -87.0
+offset_right = 136.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -342,6 +313,35 @@ value = 0.5
 show_percentage = false
 script = SubResource("GDScript_ghccp")
 
+[node name="NameLabelPanel" type="PanelContainer" parent="DefaultStyle"]
+unique_name_in_owner = true
+self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -109.0
+offset_right = -56.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wpkyg")
+script = SubResource("GDScript_vx0i6")
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+metadata/_edit_group_ = true
+
+[node name="DialogicNode_NameLabel" type="Label" parent="DefaultStyle/NameLabelPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Name"
+script = ExtResource("3")
+
 [node name="DialogicNode_TextInput" type="Control" parent="DefaultStyle"]
 layout_mode = 1
 anchors_preset = 8
@@ -350,9 +350,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -210.0
-offset_top = -50.0
+offset_top = -346.0
 offset_right = 210.0
-offset_bottom = 50.0
+offset_bottom = -246.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_ltkcf")

@@ -1,24 +1,24 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"color": Color(0.964706, 0.47451, 0.992157, 1),
+"color": Color(1, 1, 1, 1),
 "custom_info": {
-"sound_mood_default": "normal",
+"sound_mood_default": "Default",
 "sound_moods": {
-"normal": {
-"name": "normal",
-"pitch_base": 1.409,
+"Default": {
+"name": "Default",
+"pitch_base": 1.0,
 "pitch_variance": 0.0,
 "sound_folder": "res://sounds/tap-a-tap",
-"volume_base": -12.0,
+"volume_base": -20.0,
 "volume_variance": 0.0
 }
 },
 "style": ""
 },
 "default_portrait": "",
-"description": "it's u",
-"display_name": "Pearl",
+"description": "",
+"display_name": "",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

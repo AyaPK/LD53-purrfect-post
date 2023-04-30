@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cejgawmgj41tn"]
+
+[ext_resource type="Texture2D" uid="uid://c5vsigid3pxnm" path="res://art/2_indoors.png" id="1_fv5bh"]
+[ext_resource type="Script" path="res://nodes/chest_area.gd" id="2_kkgbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyq1"]
+size = Vector2(32, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g4it"]
+atlas = ExtResource("1_fv5bh")
+region = Rect2(128, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xs6dn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g4it")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3erp2"]
+size = Vector2(39, 52)
+
+[node name="chest" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tiyq1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xs6dn")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_kkgbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_3erp2")

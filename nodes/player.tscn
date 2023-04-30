@@ -265,6 +265,7 @@ limit_bottom = 590
 
 [node name="post_office_interior_camera" type="Camera2D" parent="."]
 position = Vector2(249, 184)
+zoom = Vector2(2, 2)
 
 [node name="main_village_camera" type="Camera2D" parent="."]
 position = Vector2(248, 184)
@@ -275,6 +276,8 @@ limit_bottom = 384
 
 [node name="cave_interior_camera" type="Camera2D" parent="."]
 position = Vector2(249, 184)
+zoom = Vector2(2, 2)
 limit_left = -53
+limit_top = 30
 limit_right = 650
 limit_bottom = 240

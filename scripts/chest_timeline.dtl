@@ -1,0 +1,4 @@
+blank
+player: Oh someone left their treasure here!
+player: I should leave it alone \:)
+VAR {dialog_open} = "closed"

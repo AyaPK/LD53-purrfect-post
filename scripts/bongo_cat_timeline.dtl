@@ -40,3 +40,4 @@ if {cat_planet.letter_delivered} == "false":
 	bongo_cat: He can be a bit odd but he's very funny \:3
 	VAR {dialog_open} = "closed"
 	[end_timeline]
+VAR {dialog_open} = "closed"

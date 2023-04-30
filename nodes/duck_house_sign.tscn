@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddjguuvxxxeya"]
+
+[ext_resource type="Texture2D" uid="uid://owlfsjnhjx5b" path="res://art/signs.png" id="1_s0ag0"]
+[ext_resource type="Script" path="res://duck_house_sign.gd" id="2_gahhc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j2ny"]
+atlas = ExtResource("1_s0ag0")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uiprn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j2ny")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fput"]
+size = Vector2(49, 44)
+
+[node name="duck_house_sign" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(13, -23, -15, -23, -15, -3, -5, -3, -5, 6, 3, 6, 3, -3, 13, -3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -10)
+sprite_frames = SubResource("SpriteFrames_uiprn")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_gahhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_6fput")

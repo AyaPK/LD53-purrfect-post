@@ -3,8 +3,17 @@
 "@subpath": NodePath(""),
 "color": Color(0.0941176, 0.615686, 0.0666667, 1),
 "custom_info": {
-"sound_mood_default": "",
-"sound_moods": {},
+"sound_mood_default": "Default",
+"sound_moods": {
+"Default": {
+"name": "Default",
+"pitch_base": 0.593,
+"pitch_variance": 0.0,
+"sound_folder": "res://sounds/tap-a-tap",
+"volume_base": -20.0,
+"volume_variance": 0.0
+}
+},
 "style": ""
 },
 "default_portrait": "",

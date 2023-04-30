@@ -7,6 +7,8 @@ var transition_scene_to_main_village = false
 var transition_scene_to_cave_interior = false
 var previous_scene = ""
 
+var current_music = ""
+
 var player_exit_post_office_x = 22
 var player_exit_post_office_y = 172
 

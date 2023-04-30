@@ -4,4 +4,4 @@ extends Area2D
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and len(get_overlapping_bodies()) > 1 and Dialogic.VAR.dialog_open == "closed":
-		DialogueScript.display_dialog_box("duck_npc_text")
+		DialogueScript.display_dialog_box("duck_house_sign_text")
