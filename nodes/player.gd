@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 100
-const MAX_SPEED = 100
+var MOVE_SPEED = 100
+var MAX_SPEED = 100
 const ACCELERATION = 100
 const FRICTION = 100
 const THRESHOLD = 0.01
@@ -23,6 +23,13 @@ func _physics_process(delta):
 	
 	# handle input
 	var input_direction = Vector2.ZERO 
+	if Input.is_action_pressed("ui_shift_pressed"):
+		MAX_SPEED = 200
+		MOVE_SPEED = 200
+	else:
+		MAX_SPEED = 100
+		MOVE_SPEED = 100
+	
 	if Dialogic.VAR.dialog_open == "closed":
 		if Input.is_action_pressed("ui_right"):
 			input_direction.x += 1

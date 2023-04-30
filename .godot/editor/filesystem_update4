@@ -12,3 +12,5 @@ res://nodes/cave_interior.tscn
 res://nodes/chest.tscn
 res://nodes/sign.tscn
 res://addons/dialogic/Events/DefaultStyles/Default/DialogicDefaultLayout.tscn
+res://scripts/frog_npc_dialog.dtl
+res://nodes/player.gd

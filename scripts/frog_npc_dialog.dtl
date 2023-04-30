@@ -16,6 +16,7 @@ if {frog_npc.spoken_before} == "false":
 			frog_npc: \:o it's the new lillypad I ordered!!
 			player: I'm glad you like it!
 			frog_npc: Thank you little cat friend \:)
+			player: (I should go back to tell the Mailcat that I delivered the letter!)
 			VAR {dialog_open} = "closed"
 			VAR {frog_npc.letter_delivered} = "true"
 			[end_timeline]
