@@ -9,6 +9,9 @@ func _ready():
 	if States.previous_scene == "cave_interior":
 		$player.position.x = States.player_exit_cave_interior_x
 		$player.position.y = States.player_exit_cave_interior_y
+	elif States.previous_scene == "duck_house":
+		$player.position.x = States.player_exit_duck_house_x
+		$player.position.y = States.player_exit_duck_house_y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -1259,7 +1259,7 @@ size = Vector2(25, 11)
 size = Vector2(59.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w28hi"]
-size = Vector2(29, 16)
+size = Vector2(29, 6)
 
 [node name="main_village" type="Node2D"]
 texture_filter = 1
@@ -1608,7 +1608,7 @@ shape = SubResource("RectangleShape2D_6qqkl")
 [node name="duck_house_transition" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="duck_house_transition"]
-position = Vector2(367.5, -43)
+position = Vector2(367, -46)
 shape = SubResource("RectangleShape2D_w28hi")
 
 [node name="player" parent="." instance=ExtResource("5_p42q1")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dc7t7hgw0xll3"]
+[gd_scene load_steps=15 format=3 uid="uid://dc7t7hgw0xll3"]
 
 [ext_resource type="Script" path="res://nodes/duck_house.gd" id="1_28s3d"]
 [ext_resource type="Texture2D" uid="uid://c5vsigid3pxnm" path="res://art/2_indoors.png" id="1_l0tf4"]
@@ -3702,6 +3702,9 @@ sources/3 = SubResource("TileSetAtlasSource_20dya")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjm1l"]
 size = Vector2(96, 39)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58ioc"]
+size = Vector2(53, 15)
+
 [node name="duck_house" type="Node2D"]
 script = ExtResource("1_28s3d")
 
@@ -3756,8 +3759,16 @@ polygon = PackedVector2Array(355, 207, 363, 201, 365, 192, 374, 191, 381, 179, 3
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(305, 128, 369, 128, 365, 95, 362, 74, 349, 64, 327, 64, 308, 68, 304, 87, 304, 110)
 
-[node name="player" parent="." instance=ExtResource("5_fb7vv")]
-position = Vector2(-47, 92)
-
 [node name="duck_npc" parent="." instance=ExtResource("6_r34s0")]
 position = Vector2(113, 67)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(191.5, 283.5)
+shape = SubResource("RectangleShape2D_58ioc")
+
+[node name="player" parent="." instance=ExtResource("5_fb7vv")]
+position = Vector2(-57, 82)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

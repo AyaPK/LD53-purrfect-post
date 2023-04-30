@@ -19,6 +19,9 @@ var player_exit_cave_interior_y = -200
 var player_exit_village_to_world_x = -140
 var player_exit_village_to_world_y = -90
 
+var player_exit_duck_house_x = 120
+var player_exit_duck_house_y = -210
+
 var player_start_x = -95
 var player_start_y = 394
 
@@ -26,9 +29,12 @@ var first_load_in = true
 
 func finish_changing_scenes(new_scene):
 	SfxController.play_sfx("door_sfx", -10)
+	print(current_scene)
+	
 	transition_scene_to_post_office = false
 	transition_scene_to_world = false
 	transition_scene_to_main_village = false
 	transition_scene_to_cave_interior = false
+	transition_scene_to_duck_house = false
 	previous_scene = current_scene
 	current_scene = new_scene
