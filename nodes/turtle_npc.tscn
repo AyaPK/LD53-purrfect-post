@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1pyc3onmpu13"]
+
+[ext_resource type="Texture2D" uid="uid://cutams7u77yht" path="res://art/turtles.png" id="1_01wpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ja7x"]
+atlas = ExtResource("1_01wpu")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yubrm"]
+atlas = ExtResource("1_01wpu")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ix7w"]
+atlas = ExtResource("1_01wpu")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddaqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ja7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yubrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ix7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yubrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="turtle_npc" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ddaqh")
+autoplay = "default"
+frame_progress = 0.751677
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="talk_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]

@@ -1,0 +1,21 @@
+blank
+if {duck_npc.letter_collected} == "false":
+	player: Hello!!
+	duck: Oh! Someone new! You're in my house \:o
+	player: haha yeah sorry I'm looking for someone, sorry!
+	duck: No problem buddy! Good luck finding them \:)
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {duck_npc.letter_delivered} == "false":
+	player: Hello duck friend!
+	duck: Hello! *QUACK*
+	player: Haha!! Q U A C K Q U A C K !!!!
+	player: I have a letter for you!! *quack*
+	VAR {duck_npc.letter_delivered} = "true"
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {duck_npc.letter_delivered} == "true":
+	player: Hey again duck friend!! *quack quack*
+	duck: Hehe hello!! *QUACK!!*
+VAR {dialog_open} = "closed"
+[end_timeline]

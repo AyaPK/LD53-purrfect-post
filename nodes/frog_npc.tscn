@@ -59,6 +59,7 @@ size = Vector2(38, 32)
 [node name="frog_npc" type="StaticBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_4uc2o")
 autoplay = "default"

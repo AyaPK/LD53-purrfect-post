@@ -14,3 +14,16 @@ res://nodes/sign.tscn
 res://addons/dialogic/Events/DefaultStyles/Default/DialogicDefaultLayout.tscn
 res://scripts/frog_npc_dialog.dtl
 res://nodes/player.gd
+res://scripts/duck_npc.dch
+res://scripts/duck.dch
+res://duck_npc_text.dtl
+res://nodes/duck_npc.tscn
+res://nodes/main_village.tscn
+res://dialogic/player.dch
+res://dialogic/sign_text.dtl
+res://nodes/turtle_npc.tscn
+res://nodes/frog_npc.tscn
+res://autoloads/SFXController.tscn
+res://autoloads/SFXController.gd
+res://scripts/states.gd
+res://autoloads/MusicController.tscn

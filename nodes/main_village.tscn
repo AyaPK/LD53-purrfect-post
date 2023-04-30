@@ -1585,10 +1585,6 @@ shape = SubResource("RectangleShape2D_ja0r4")
 position = Vector2(143, 239)
 shape = SubResource("RectangleShape2D_ja0r4")
 
-[node name="player" parent="." instance=ExtResource("5_p42q1")]
-y_sort_enabled = true
-position = Vector2(359, 184)
-
 [node name="cave_transition" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave_transition"]
@@ -1604,6 +1600,10 @@ shape = SubResource("RectangleShape2D_6qqkl")
 
 [node name="duck_npc" parent="." instance=ExtResource("15_ewgej")]
 position = Vector2(393, 5)
+
+[node name="player" parent="." instance=ExtResource("5_p42q1")]
+y_sort_enabled = true
+position = Vector2(359, 184)
 
 [connection signal="body_entered" from="cave_transition" to="." method="_on_cave_transition_body_entered"]
 [connection signal="body_entered" from="world_transition" to="." method="_on_world_transition_body_entered"]

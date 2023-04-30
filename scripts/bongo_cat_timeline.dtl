@@ -51,6 +51,7 @@ if {duck_npc.letter_collected} == "false":
 	bongo_cat: Fantastic! This one is for the duck, he lives in one of the houses \:)
 	player: I'm on it!!
 	VAR {dialog_open} = "closed"
+	VAR {duck_npc.letter_collected} = "true"
 	[end_timeline]
 if {duck_npc.letter_delivered} == "false":
 	bongo_cat: Heya Pearl! Did you deliver the Ducks letter? \:)

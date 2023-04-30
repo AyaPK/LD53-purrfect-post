@@ -21,16 +21,17 @@ Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 DialogueScript="*res://scripts/dialogue_script.gd"
 States="*res://scripts/states.gd"
 MusicController="*res://autoloads/MusicController.tscn"
+SfxController="*res://autoloads/SFXController.tscn"
 
 [dialogic]
 
-editor/character_preview_mode=1
-editor/current_editor=&"Timeline Editor"
+editor/character_preview_mode=0
+editor/current_editor=&"VariablesEditor"
 editor/current_resources={
-"Character Editor": "res://scripts/cat_planet_cat_npc.dch",
-"Timeline Editor": "res://scripts/frog_npc_dialog.dtl"
+"Character Editor": "res://dialogic/player.dch",
+"Timeline Editor": "res://dialogic/sign_text.dtl"
 }
-editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "")
+editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "", "res://scripts/duck.dch")
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
 animations/leave_default_wait=true
@@ -73,7 +74,7 @@ layout/export_overrides={
 "name_label_font_size": "12.0",
 "name_label_use_character_color": "true",
 "sizing_mode": "2",
-"text_alignment": "1",
+"text_alignment": "0",
 "text_size": "15.0"
 }
 

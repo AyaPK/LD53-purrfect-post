@@ -24,6 +24,7 @@ var player_start_y = 394
 var first_load_in = true
 
 func finish_changing_scenes(new_scene):
+	SfxController.play_sfx("door_sfx", -10)
 	transition_scene_to_post_office = false
 	transition_scene_to_world = false
 	transition_scene_to_main_village = false

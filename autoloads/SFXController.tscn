@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mw8nhkm2twgv"]
+
+[ext_resource type="Script" path="res://autoloads/SFXController.gd" id="1_t2bcf"]
+
+[node name="SFXController" type="Node2D"]
+script = ExtResource("1_t2bcf")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
