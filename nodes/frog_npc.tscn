@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2e7c8yq1uagf"]
+
+[ext_resource type="Texture2D" uid="uid://fsgah5nqbl2" path="res://art/animals.png" id="1_syp6u"]
+[ext_resource type="Script" path="res://nodes/frog_npc_talk.gd" id="2_2dp8t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1apt"]
+atlas = ExtResource("1_syp6u")
+region = Rect2(192, 132, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmqp1"]
+atlas = ExtResource("1_syp6u")
+region = Rect2(224, 132, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imlu7"]
+atlas = ExtResource("1_syp6u")
+region = Rect2(256, 132, 32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4uc2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1apt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imlu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqp1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ampkx"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glb3s"]
+size = Vector2(38, 32)
+
+[node name="frog_npc" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -8)
+sprite_frames = SubResource("SpriteFrames_4uc2o")
+autoplay = "default"
+frame_progress = 0.321632
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_ampkx")
+
+[node name="talk_area" type="Area2D" parent="."]
+script = ExtResource("2_2dp8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_glb3s")

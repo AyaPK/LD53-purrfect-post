@@ -1,0 +1,3 @@
+VAR {dialog_open} = "open"
+player: I should probably see what's in that house before I visit the village!
+VAR {dialog_open} = "closed"

@@ -1,0 +1,558 @@
+[gd_scene load_steps=25 format=3 uid="uid://defom4dgavve5"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Events/Text/node_dialog_text.gd" id="2"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Text/node_name_label.gd" id="3"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Choice/node_choice_button.gd" id="4"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Background/node_background_holder.gd" id="5_uvb2c"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Text/node_type_sound.gd" id="10"]
+[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="11"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Style/node_style.gd" id="12"]
+[ext_resource type="AudioStream" uid="uid://dwcre3fjf3cj8" path="res://addons/dialogic/Example Assets/sound-effects/typing5.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="14"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Choice/node_button_sound.gd" id="18"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/Text/node_next_indicator.gd" id="20_ljcq2"]
+[ext_resource type="PackedScene" path="res://addons/dialogic/Events/DefaultStyles/ExampleHistoryScene.tscn" id="22_854kg"]
+[ext_resource type="Script" path="res://addons/dialogic/Events/TextInput/node_text_input.gd" id="22_ltkcf"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="23_gyqve"]
+[ext_resource type="FontFile" uid="uid://cc4xli25271fd" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Bold.ttf" id="24_aa4pl"]
+[ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Italic.ttf" id="25_wt3bc"]
+
+[sub_resource type="GDScript" id="GDScript_6lsww"]
+script/source = "@tool
+extends CanvasLayer
+
+enum Alignments {Left, Center, Right}
+
+@export_group(\"Main\")
+@export_subgroup(\"Text\")
+@export var text_alignment :Alignments= Alignments.Left
+@export var text_size := 15
+@export var text_color : Color = Color.WHITE
+@export_file('*.ttf') var normal_font:String = \"\"
+@export_file('*.ttf') var bold_font:String = \"\"
+@export_file('*.ttf') var italic_font:String = \"\"
+@export_file('*.ttf') var bold_italic_font:String = \"\"
+
+@export_subgroup(\"Box\")
+@export var box_modulate : Color = Color(0.00784313771874, 0.00784313771874, 0.00784313771874, 0.84313726425171)
+
+@export_subgroup(\"Name Label\")
+#@export var name_label_alignment = Alignments.Left
+@export var name_label_font_size := 15
+@export_file('*.ttf') var name_label_font : String = \"\"
+@export var name_label_use_character_color := true
+@export var name_label_color := Color.WHITE
+@export var name_label_box_modulate : Color = box_modulate
+
+## FOR TESTING PURPOSES
+func _ready():
+	add_to_group('dialogic_main_node')
+	
+	## FONT SETTINGS
+	%DialogicNode_DialogText.alignment = text_alignment
+	
+	%DialogicNode_DialogText.add_theme_font_size_override(\"normal_font_size\", text_size)
+	%DialogicNode_DialogText.add_theme_font_size_override(\"bold_font_size\", text_size)
+	%DialogicNode_DialogText.add_theme_font_size_override(\"italics_font_size\", text_size)
+	%DialogicNode_DialogText.add_theme_font_size_override(\"bold_italics_font_size\", text_size)
+	
+	%DialogicNode_DialogText.add_theme_color_override(\"default_color\", text_color)
+	
+	if !normal_font.is_empty():
+		%DialogicNode_DialogText.add_theme_font_override(\"normal_font\", load(normal_font))
+	if !bold_font.is_empty():
+		%DialogicNode_DialogText.add_theme_font_override(\"bold_font\", load(bold_font))
+	if !italic_font.is_empty():
+		%DialogicNode_DialogText.add_theme_font_override(\"italitc_font\", load(italic_font))
+	if !bold_italic_font.is_empty():
+		%DialogicNode_DialogText.add_theme_font_override(\"bold_italics_font\", load(bold_italic_font))
+	
+	## BOX SETTINGS
+	%DialogTextPanel.self_modulate = box_modulate
+	%TextInputPanel.self_modulate = box_modulate
+	
+	## NAME LABEL SETTINGS
+	%DialogicNode_NameLabel.add_theme_font_size_override(\"font_size\", name_label_font_size)
+	
+	if !name_label_font.is_empty():
+		%DialogicNode_NameLabel.add_theme_font_override('font', load(name_label_font))
+	
+	%DialogicNode_NameLabel.add_theme_color_override(\"font_color\", name_label_color)
+	
+	%DialogicNode_NameLabel.use_character_color = name_label_use_character_color
+	
+	%NameLabelPanel.self_modulate = name_label_box_modulate
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpkyg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="GDScript" id="GDScript_vx0i6"]
+script/source = "extends Control
+
+func _ready():
+	get_child(0).visibility_changed.connect(_on_child_visibility_changed)
+	_on_child_visibility_changed()
+
+func _on_child_visibility_changed():
+	visible = get_child(0).visible
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3vpc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="GDScript" id="GDScript_ghccp"]
+script/source = "extends Range
+
+func _process(delta):
+	if Dialogic.Text.get_autoadvance_progress() < 0:
+		hide()
+	else:
+		show()
+		value = Dialogic.Text.get_autoadvance_progress()
+"
+
+[sub_resource type="GDScript" id="GDScript_62nmu"]
+script/source = "extends Control
+
+func _ready() -> void:
+	hide()
+
+func _process(delta) -> void:
+	if visible:
+		global_position = get_global_mouse_position()
+
+func _on_dialogic_display_dialog_text_meta_hover_started(meta:String) -> void:
+	var info :Dictionary = Dialogic.Glossary.get_entry(meta)
+	if info:
+		show()
+		$Panel/VBox/Title.text = info.get('title', '')
+		$Panel/VBox/Text.text = info.get('text', '')
+		$Panel/VBox/Extra.text = '[right]'+info.get('extra', '')
+		modulate = info.get('color', Color.WHITE)#.darkened(0.5)
+		global_position = get_global_mouse_position()
+
+func _on_dialogic_display_dialog_text_meta_hover_ended(meta:String) -> void:
+	hide()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3cyk"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 2
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnmvp"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.576471, 0.54902, 0.956863)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.733333, 0.670588, 0.627451, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.823529, 0.803922, 0.756863, 1)
+shadow_size = 5
+
+[node name="DefaultDialogNode" type="CanvasLayer"]
+script = SubResource("GDScript_6lsww")
+name_label_box_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+
+[node name="DialogicNode_BackgroundHolder" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("5_uvb2c")
+
+[node name="DefaultStyle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 59.0
+offset_right = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12")
+
+[node name="Choices" type="VBoxContainer" parent="DefaultStyle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -103.0
+offset_right = 115.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="DialogicNode_ChoiceButton1" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton2" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton3" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton4" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton5" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton6" type="Button" parent="DefaultStyle/Choices"]
+layout_mode = 2
+text = "Some text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ButtonSound" type="AudioStreamPlayer" parent="DefaultStyle/Choices"]
+script = ExtResource("18")
+sound_pressed = ExtResource("14")
+sound_hover = ExtResource("11")
+sound_focus = ExtResource("13")
+
+[node name="NameLabelPanel" type="PanelContainer" parent="DefaultStyle"]
+unique_name_in_owner = true
+self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.0
+offset_top = -159.0
+offset_right = -182.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wpkyg")
+script = SubResource("GDScript_vx0i6")
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+metadata/_edit_group_ = true
+
+[node name="DialogicNode_NameLabel" type="Label" parent="DefaultStyle/NameLabelPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Name"
+script = ExtResource("3")
+
+[node name="DialogTextPanel" type="PanelContainer" parent="DefaultStyle"]
+unique_name_in_owner = true
+self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.0
+offset_top = -63.0
+offset_right = 174.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q3vpc")
+metadata/_edit_layout_mode = 1
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="DefaultStyle/DialogTextPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
+theme_override_font_sizes/bold_italics_font_size = 15
+bbcode_enabled = true
+text = "Some default text"
+visible_characters_behavior = 1
+script = ExtResource("2")
+
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="DefaultStyle/DialogTextPanel/DialogicNode_DialogText"]
+script = ExtResource("10")
+play_every_character = 0
+
+[node name="DNextIndicator" type="Control" parent="DefaultStyle/DialogTextPanel"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("20_ljcq2")
+show_on_questions = true
+metadata/_edit_layout_mode = 1
+
+[node name="AutoAdvanceProgressbar" type="ProgressBar" parent="DefaultStyle/DialogTextPanel"]
+modulate = Color(1, 1, 1, 0.188235)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+show_percentage = false
+script = SubResource("GDScript_ghccp")
+
+[node name="DialogicNode_TextInput" type="Control" parent="DefaultStyle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -50.0
+offset_right = 210.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_ltkcf")
+input_line_edit = NodePath("TextInputPanel/VBoxContainer/InputField")
+text_label = NodePath("TextInputPanel/VBoxContainer/TextLabel")
+confirmation_button = NodePath("TextInputPanel/VBoxContainer/ConfirmationButton")
+metadata/_edit_layout_mode = 1
+
+[node name="TextInputPanel" type="PanelContainer" parent="DefaultStyle/DialogicNode_TextInput"]
+unique_name_in_owner = true
+self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q3vpc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultStyle/DialogicNode_TextInput/TextInputPanel"]
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="DefaultStyle/DialogicNode_TextInput/TextInputPanel/VBoxContainer"]
+layout_mode = 2
+text = "Please enter some text:"
+autowrap_mode = 3
+
+[node name="InputField" type="LineEdit" parent="DefaultStyle/DialogicNode_TextInput/TextInputPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ConfirmationButton" type="Button" parent="DefaultStyle/DialogicNode_TextInput/TextInputPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Confirm"
+
+[node name="Glossary" type="Control" parent="DefaultStyle"]
+layout_mode = 1
+anchors_preset = 0
+script = SubResource("GDScript_62nmu")
+
+[node name="Panel" type="PanelContainer" parent="DefaultStyle/Glossary"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -115.0
+offset_right = 104.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a3cyk")
+metadata/_edit_use_custom_anchors = true
+metadata/_edit_layout_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="DefaultStyle/Glossary/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="DefaultStyle/Glossary/Panel/VBox"]
+layout_mode = 2
+text = "MyGlossaryEntry"
+
+[node name="HSeparator" type="HSeparator" parent="DefaultStyle/Glossary/Panel/VBox"]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="DefaultStyle/Glossary/Panel/VBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Some text"
+fit_content = true
+
+[node name="Extra" type="RichTextLabel" parent="DefaultStyle/Glossary/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0.584314)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[right]Wow, some text!"
+fit_content = true
+
+[node name="Control" type="Control" parent="DefaultStyle/Glossary/Panel"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="DefaultStyle/Glossary/Panel/Control"]
+layout_mode = 0
+offset_left = -0.999999
+offset_top = -14.0
+offset_right = 19.0
+offset_bottom = 6.0
+rotation = 0.75799
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_a3cyk")
+
+[node name="SpecialStyle" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12")
+style_name = "Special"
+
+[node name="Choices" type="VBoxContainer" parent="SpecialStyle"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -276.0
+offset_right = -27.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+metadata/_edit_layout_mode = 1
+
+[node name="DialogicNode_ChoiceButton1" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton2" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton3" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton4" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton5" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="DialogicNode_ChoiceButton6" type="Button" parent="SpecialStyle/Choices"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Text"
+script = ExtResource("4")
+
+[node name="PanelContainer" type="PanelContainer" parent="SpecialStyle"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 26.0
+offset_right = 202.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nnmvp")
+metadata/_edit_layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SpecialStyle/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpecialStyle/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="DialogicNode_NameLabel" type="Label" parent="SpecialStyle/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+script = ExtResource("3")
+use_character_color = false
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="SpecialStyle/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Some default text"
+script = ExtResource("2")
+
+[node name="ExampleHistoryScene" parent="." instance=ExtResource("22_854kg")]
+history_font_normal = ExtResource("23_gyqve")
+history_font_bold = ExtResource("24_aa4pl")
+history_font_italics = ExtResource("25_wt3bc")
+metadata/_edit_lock_ = true
+
+[connection signal="meta_hover_ended" from="DefaultStyle/DialogTextPanel/DialogicNode_DialogText" to="DefaultStyle/Glossary" method="_on_dialogic_display_dialog_text_meta_hover_ended"]
+[connection signal="meta_hover_started" from="DefaultStyle/DialogTextPanel/DialogicNode_DialogText" to="DefaultStyle/Glossary" method="_on_dialogic_display_dialog_text_meta_hover_started"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://x4oxo0tsofgk"]
+
+[ext_resource type="Texture2D" uid="uid://pvid50gstlq4" path="res://art/catplansheet.png" id="1_pkncq"]
+[ext_resource type="Script" path="res://nodes/cat_planet_text.gd" id="2_xou4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8b56"]
+atlas = ExtResource("1_pkncq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jmjs"]
+atlas = ExtResource("1_pkncq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dovrj"]
+atlas = ExtResource("1_pkncq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n281y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8b56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jmjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dovrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jmjs")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ov0gt"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xpk5"]
+size = Vector2(22, 22)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_n281y")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.377695
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_ov0gt")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_xou4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_6xpk5")

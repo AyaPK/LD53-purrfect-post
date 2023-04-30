@@ -1,0 +1,42 @@
+blank
+if {plot.been_to_house} == "false":
+	bongo_cat: Hello!!! \:)
+	player: Hi!
+	bongo_cat: Are you new to the village?
+	player: I am! My name is pearl \:)
+	bongo_cat: Welcome! This is the post office \:)
+	bongo_cat: I get all of the letters for the other animals who live here
+	player: I can't wait to meet them all!!!! \:D
+	bongo_cat: Hey! Would you like to deliver a letter for me?
+	bongo_cat: You'll be able to make friends along the way \:)
+	player: Sure!! \:)
+	bongo_cat: Thank!
+	bongo_cat: This letter is for the frog who lives by the pond \:)
+	player: I'm on it!!
+	VAR {plot.been_to_house} = "true"
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {frog_npc.letter_delivered} == "false":
+	bongo_cat: You'll find the frog dude by the pond \:)
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {cat_planet.letter_collected} == "false":
+	bongo_cat: Thank you for delvering the letter to the frog dude!
+	player: No problem! He was really nice \:)
+	bongo_cat: Everyone here is really nice!!
+	player: I can't wait to meet more people \:)
+	bongo_cat: Hey I have another letter here if you'd like to deliver it?
+	player: Sure!!!
+	bongo_cat: Thank you Pearly, here is the letter \:)
+	player: Who is this for?
+	bongo_cat: He's another little cat dude \:) He likes to jump around outside!
+	player: I'll go find him!!
+	VAR {cat_planet.letter_collected} = "true"
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+if {cat_planet.letter_delivered} == "false":
+	bongo_cat: You'll find the cat dude jumping around outside \:)
+	player: I'll go and look for him!
+	bongo_cat: He can be a bit odd but he's very funny \:3
+	VAR {dialog_open} = "closed"
+	[end_timeline]

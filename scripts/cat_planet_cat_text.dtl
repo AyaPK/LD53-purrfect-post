@@ -1,0 +1,31 @@
+blank
+if {cat_planet.letter_collected} == "false":
+	cat_planet_cat_npc (New portrait): Everybody cat planet tonight!
+	cat_planet_cat_npc (New portrait): Like it was $15.99!
+	cat_planet_cat_npc (New portrait): The price of a regular CAT PLANET!! \:3
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {cat_planet.letter_delivered} == "false":
+	cat_planet_cat_npc: The thorns are dangerous and will make you eat soup!!
+	player: Haha heya buddy!
+	cat_planet_cat_npc: I'm floating!!
+	player: Yeah you are!!! \:D
+	Deliver the Cat Planet Planet Cat Planet Cat's letter?
+	- Yes
+		VAR {cat_planet.letter_delivered} = "true"
+		player: I have a letter for you!
+		cat_planet_cat_npc: It's my new rotary disc!!!
+		player: Your... Rotary disc? \:3
+		cat_planet_cat_npc: Now I can fly with wings in the seagull!!!
+		player: Haha you go dude!!
+		player: (What a funky little guy... \:D)
+		VAR {dialog_open} = "closed"
+		[end_timeline]
+	- No
+		VAR {dialog_open} = "closed"
+		[end_timeline]
+elif {cat_planet.letter_delivered} == "true":
+	cat_planet_cat_npc: FACTORY FACTORY FACTORY FACTORY
+	player: Haha yeah!!!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]

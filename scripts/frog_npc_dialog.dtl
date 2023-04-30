@@ -1,0 +1,32 @@
+blank
+if {frog_npc.spoken_before} == "false":
+	VAR {frog_npc.spoken_before} = "true"
+	frog_npc: Hi! I'm just a li'l frog guy \:)
+	player: Omg hi! I love your pond!!
+	frog_npc: Haha, thank!
+	frog_npc: I don't recognise you, are you new?
+	player: Yes! \:) I just moved here!
+	frog_npc: Welcome to the village little cat friend!!! \:D
+	if {frog_npc.letter_delivered} == "false":
+		[label name="letter_delivery"]
+		Would you like to deliver the frog's letter?
+		- Yes
+			player: I have this letter for you!!
+			frog_npc: Thank you so much! \:D
+			frog_npc: \:o it's the new lillypad I ordered!!
+			player: I'm glad you like it!
+			frog_npc: Thank you little cat friend \:)
+			VAR {dialog_open} = "closed"
+			VAR {frog_npc.letter_delivered} = "true"
+			[end_timeline]
+		- No
+			VAR {dialog_open} = "closed"
+			[end_timeline]
+	VAR {dialog_open} = "closed"
+else:
+	if {frog_npc.letter_delivered} == "false":
+		[jump timeline="" label="letter_delivery"]
+	frog_npc: Hi again little cat friend! \:D
+	player: Hello!!! \:)
+	frog_npc: Feel free to sit by my pond with me <3
+	VAR {dialog_open} = "closed"

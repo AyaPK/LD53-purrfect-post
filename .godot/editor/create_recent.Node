@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+StaticBody2D
+CollisionPolygon2D
+Camera2D
+TileMap
+RichTextLabel
+NinePatchRect
+CanvasLayer
+Timer
+Polygon2D
+ColorRect
+Control

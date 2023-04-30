@@ -1,0 +1,6 @@
+VAR {dialog_open} = "open"
+player: So this is my new home! The village is just up ahead!!
+player: I can't wait to meet everyone \:)
+player: I should take a look around before heading to the village
+VAR {dialog_open} = "closed"
+VAR {plot.first_load} = "true"
