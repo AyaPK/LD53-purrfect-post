@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4hw38443b70g"]
+[gd_scene load_steps=12 format=3 uid="uid://d4hw38443b70g"]
 
 [ext_resource type="Texture2D" uid="uid://cuvbtlpiuqdm6" path="res://art/8_cave.png" id="1_0n3hf"]
 [ext_resource type="Script" path="res://nodes/cave_interior.gd" id="1_w7cl3"]
@@ -216,6 +216,8 @@ tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_1sksk")
 sources/0 = SubResource("TileSetAtlasSource_kojq2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5is5f"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8vg"]
 size = Vector2(29.5, 10)
 
@@ -244,10 +246,33 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(262152, 65537, 7, 131085, 327681, 7, 196620, 131073, 7, 262157, 131073, 7, 131080, 196609, 6, 65543, 131073, 6, 327687, 1, 7, 196615, 131073, 7, 196621, 327681, 6, 65548, 131073, 6, 327692, 262145, 6, 65545, 393217, 6, 65547, 393217, 6, 393225, 786433, 1, 393227, 851969, 1, 458762, 131073, 1, 458763, 262145, 2, 458761, 1, 2, 131082, 262144, 9)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(319, 256, 320, 224, 314, 206, 298, 192, 224, 189, 225, 169, 226, 37, 438, 40, 448, 52, 445, 182, 438, 192, 378, 191, 360, 203, 352, 232, 353, 256, 355, 285, 416, 263, 498, 236, 482, 21, 188, 23, 192, 231, 279, 244, 291, 279)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(242, 114)
+shape = SubResource("RectangleShape2D_5is5f")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(433, 85)
+shape = SubResource("RectangleShape2D_5is5f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(400, 113)
+shape = SubResource("RectangleShape2D_5is5f")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(369, 49)
+shape = SubResource("RectangleShape2D_5is5f")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(432, 145)
+shape = SubResource("RectangleShape2D_5is5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(303, 50)
+shape = SubResource("RectangleShape2D_5is5f")
 
 [node name="leave_cave_transition" type="Area2D" parent="."]
 

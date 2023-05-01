@@ -67,3 +67,4 @@ res://scripts/turtle_sign_text.dtl
 res://penguin_sign.gd
 res://nodes/penguin_house_sign.tscn
 res://scripts/penguin_sign_text.dtl
+res://nodes/cave_interior.tscn
