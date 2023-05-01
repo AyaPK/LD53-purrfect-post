@@ -8,6 +8,7 @@ var transition_scene_to_cave_interior = false
 var transition_scene_to_duck_house = false
 var transition_scene_to_turtle_house = false
 var transition_scene_to_pommy_house = false
+var transition_scene_to_penguin_house = false
 var previous_scene = ""
 
 var current_music = ""
@@ -30,6 +31,9 @@ var player_exit_turtle_house_y = -630
 var player_exit_pommy_house_x = -459
 var player_exit_pommy_house_y = -155
 
+var player_exit_penguin_house_x = 214
+var player_exit_penguin_house_y = -607
+
 var player_start_x = -95
 var player_start_y = 394
 
@@ -45,6 +49,7 @@ func finish_changing_scenes(new_scene):
 	transition_scene_to_duck_house = false
 	transition_scene_to_turtle_house = false
 	transition_scene_to_pommy_house = false
+	transition_scene_to_penguin_house = false
 	
 	previous_scene = current_scene
 	current_scene = new_scene

@@ -122,5 +122,45 @@ elif {Obake NPC.letter_delivered} == "false":
 	player: Okay thank you!!
 	VAR {dialog_open} = "closed"
 	[end_timeline]
+elif {owl_npc.letter_collected} == "false":
+	bongo_cat: Hey she's back!! \:D
+	player: Hello!! I met the Obake he's very nice!
+	bongo_cat: He gets a lot of rocks delivered \:)
+	player: Apparently they're minerals \:o
+	bongo_cat: That explains it! Ready for a new one?
+	player: More than ready!!
+	bongo_cat: This one is for the owl, he lives in a tree near a small pond \:)
+	bongo_cat: Sometimes he is sleeping, just leave the letter nearby if he is!
+	player: Okay!! Here we go!
+	VAR {dialog_open} = "closed"
+	VAR {owl_npc.letter_collected} = "true"
+	[end_timeline]
+elif {owl_npc.letter_delivered} == "false":
+	bongo_cat: Try not to wake the owl \:)
+	player: I'll be quiet I promise! <3
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {penguins.letter_collected} == "false":
+	bongo_cat: ...
+	player: ...
+	bongo_cat: ...
+	player: BELLO!!! \:D
+	bongo_cat: OH! Hey friend! Sorry I was concentrating! \:D
+	player: Haha that's cool! I delivered Mr. Owl's letter \:)
+	bongo_cat: Amazing! You're working so hard \:3
+	player: Are there any more letters? \:o
+	bongo_cat: Yes!!! This one is for Mrs. Penguin \:)
+	bongo_cat: She and Mr. Penguin live at the top of the village!
+	player: I bet they're so chill \:3
+	bongo_cat: hehehe yeah!!
+	VAR {penguins.letter_collected} = "true"
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {penguins.letter_delivered} == "false":
+	player: How are you doing Mailcat?
+	bongo_cat: I'm relaxing! You're doing all of the hard work for me! \:D
+	player: But it's so fun!!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

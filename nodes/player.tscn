@@ -307,3 +307,11 @@ limit_left = 9
 limit_top = -240
 limit_right = 650
 limit_bottom = 240
+
+[node name="penguin_house_interior_camera" type="Camera2D" parent="."]
+position = Vector2(247, 183)
+zoom = Vector2(2, 2)
+limit_left = 9
+limit_top = -240
+limit_right = 650
+limit_bottom = 240

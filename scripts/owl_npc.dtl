@@ -1,0 +1,21 @@
+blank
+if {owl_npc.letter_collected} == "false":
+	owl_npc: ...
+	player: (Aw, he's sleeping, I should leave him alone! \:3)
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {owl_npc.letter_delivered} == "false":
+	owl_npc: ...
+	player: (He's still sleeping \:) I'll just leave this here...)
+	owl_npc: Hoo.... Ho....
+	player: (Time to go and see the mailcat again!)
+	VAR {dialog_open} = "closed"
+	VAR {owl_npc.letter_delivered} = "true"
+	[end_timeline]
+elif {owl_npc.letter_delivered} == "true":
+	owl_npc: ... Hoo....
+	player: (I should let him rest \:3)
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+VAR {dialog_open} = "closed"
+[end_timeline]

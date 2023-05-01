@@ -1,0 +1,4 @@
+blank
+ghost_npc: ...
+VAR {dialog_open} = "closed"
+[end_timeline]

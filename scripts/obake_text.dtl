@@ -17,5 +17,13 @@ elif {Obake NPC.letter_delivered} == "false":
 	VAR {dialog_open} = "closed"
 	VAR {Obake NPC.letter_delivered} = "true"
 	[end_timeline]
+elif {Obake NPC.letter_delivered} == "true":
+	player: Hello again!! \:)
+	obake_npc: Hi. Thanks again for the minerals.
+	player: No problem buddy!! Do you mind if I take a look at them? \:)
+	obake_npc: Sure, they're inside.
+	player: Thank!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3mdn1qngk414"]
+[gd_scene load_steps=9 format=3 uid="uid://c3mdn1qngk414"]
 
 [ext_resource type="Texture2D" uid="uid://tevxoube0w6x" path="res://art/ghost.png" id="1_k8b2e"]
+[ext_resource type="Script" path="res://nodes/ghost_talk.gd" id="2_koyn4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yq6m0"]
 atlas = ExtResource("1_k8b2e")
@@ -53,6 +54,7 @@ frame_progress = 0.561735
 shape = SubResource("CircleShape2D_3lv7l")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_koyn4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -9)

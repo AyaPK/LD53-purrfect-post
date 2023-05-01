@@ -82,7 +82,7 @@ func _physics_process(delta):
 func current_camera():
 	var cameras = [$world_camera, $post_office_interior_camera, $main_village_camera,
 					$cave_interior_camera, $duck_house_interior_camera, $turtle_house_interior_camera,
-					$pommy_house_interior_camera]
+					$pommy_house_interior_camera, $penguin_house_interior_camera]
 	
 	for camera in cameras:
 		camera.enabled = false
@@ -101,3 +101,5 @@ func current_camera():
 		$turtle_house_interior_camera.enabled = true
 	elif States.current_scene == "pommy_house":
 		$pommy_house_interior_camera.enabled = true;
+	elif States.current_scene == "penguin_house":
+		$penguin_house_interior_camera.enabled = true;

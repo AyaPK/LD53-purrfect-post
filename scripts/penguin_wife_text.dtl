@@ -1,0 +1,7 @@
+blank
+if {penguins.letter_collected} == "false":
+	player: Hello! \:) I love your house!
+	penguin_wife: Thank you! My husband helped me decorate \:)
+	player: It's so pretty!!
+VAR {dialog_open} = "closed"
+[end_timeline]

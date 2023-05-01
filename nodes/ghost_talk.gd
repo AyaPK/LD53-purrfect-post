@@ -4,4 +4,4 @@ extends Area2D
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and len(get_overlapping_bodies()) > 2 and Dialogic.VAR.dialog_open == "closed":
-		DialogueScript.display_dialog_box("turtle_timeline")
+		DialogueScript.display_dialog_box("ghost_text")

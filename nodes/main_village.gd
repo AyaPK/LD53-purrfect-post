@@ -18,7 +18,9 @@ func _ready():
 	elif States.previous_scene == "pommy_house":
 		$player.position.x = States.player_exit_pommy_house_x
 		$player.position.y = States.player_exit_pommy_house_y
-		
+	elif States.previous_scene == "penguin_house":
+		$player.position.x = States.player_exit_penguin_house_x
+		$player.position.y = States.player_exit_penguin_house_y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -44,6 +46,10 @@ func _on_pommy_house_transition_body_entered(body):
 	if body.has_method("player"):
 		States.transition_scene_to_pommy_house = true
 
+func _on_penguin_house_transition_body_entered(body):
+	if body.has_method("player"):
+		States.transition_scene_to_penguin_house = true
+
 func change_scenes():
 	if States.transition_scene_to_cave_interior:
 		get_tree().change_scene_to_file("res://nodes/cave_interior.tscn")
@@ -60,9 +66,6 @@ func change_scenes():
 	elif States.transition_scene_to_pommy_house:
 		get_tree().change_scene_to_file("res://nodes/pommy_house.tscn")
 		States.finish_changing_scenes("pommy_house")
-
-
-
-
-
-
+	elif States.transition_scene_to_penguin_house:
+		get_tree().change_scene_to_file("res://nodes/penguin_house.tscn")
+		States.finish_changing_scenes("penguin_house")

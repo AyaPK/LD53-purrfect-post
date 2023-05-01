@@ -3975,10 +3975,6 @@ y_sort_enabled = true
 position = Vector2(206, 380)
 script = null
 
-[node name="player" parent="Node2D" instance=ExtResource("7")]
-y_sort_enabled = true
-position = Vector2(-95, 394)
-
 [node name="Foreground-upper" type="TileMap" parent="Node2D"]
 texture_filter = 1
 scale = Vector2(0.98231, 1)
@@ -3986,6 +3982,10 @@ tile_set = SubResource("4")
 cell_quadrant_size = 8
 format = 2
 layer_0/tile_data = PackedInt32Array(131073, 27, 0, 131074, 26, 0, 131076, 27, 0, 131077, 25, 0, 131078, 25, 0, 131079, 25, 0, 131080, 25, 0, 131081, 25, 0, 131082, 25, 0, 131083, 25, 0, 131084, 25, 0, 131085, 26, 0, 458757, 15, 0, 458758, 16, 0, 458759, 22, 0, 458760, 22, 0, 458761, 22, 0, 458762, 19, 0, 458763, 20, 0, 524293, 9, 0, 524294, 6, 0, 524295, 7, 0, 524296, 7, 0, 524297, 7, 0, 524298, 8, 0, 524299, 14, 0, 589829, 0, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 4, 0, 720902, 23, 0, 196610, 23, 0, 1048582, 983068, 3, 1245187, 655388, 15, 1245189, 655388, 15, 1245191, 655388, 15)
+
+[node name="player" parent="Node2D" instance=ExtResource("7")]
+y_sort_enabled = true
+position = Vector2(-95, 394)
 
 [node name="post_office_interior_transition" type="Area2D" parent="."]
 

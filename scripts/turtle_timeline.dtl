@@ -17,7 +17,7 @@ elif {turtle_npc.letter_delivered} == "false":
 	VAR {turtle_npc.letter_delivered} = "true"
 	[end_timeline]
 elif {turtle_npc.letter_delivered} == "true":
-	turtle_npc: Oh, hello there patricia
+	turtle_npc: Oh hello there Pamela
 	player: Hello Ms. Turtle \:)
 	turtle_npc: Thank you for stopping by to visit, please make yourself at home
 	player: Hehe, thank! \:D
