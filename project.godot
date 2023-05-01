@@ -29,7 +29,7 @@ editor/character_preview_mode=0
 editor/current_editor=&"VariablesEditor"
 editor/current_resources={
 "Character Editor": "res://scripts/penguin_wife.dch",
-"Timeline Editor": "res://scripts/bongo_cat_timeline.dtl"
+"Timeline Editor": "res://scripts/penguin_wife_text.dtl"
 }
 editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch", "res://scripts/obake_npc.dch", "res://scripts/obake_text.dtl", "res://scripts/owl_npc.dch", "res://scripts/owl_npc.dtl", "res://scripts/ghost_npc.dch", "res://scripts/ghost_text.dtl", "res://scripts/penguin_husband.dch", "res://scripts/penguin_wife.dch", "res://scripts/penguin_husband_text.dtl", "res://scripts/penguin_wife_text.dtl", "")
 animations/join_default_length=0.5
@@ -44,7 +44,7 @@ text/skippable=true
 text/autocontinue_delay=1.0
 text/autopauses={}
 glossary/default_case_sensitive=true
-editor/last/resources=["res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch"]
+editor/last/resources=["res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch", "res://scripts/obake_npc.dch", "res://scripts/obake_text.dtl", "res://scripts/owl_npc.dch", "res://scripts/owl_npc.dtl", "res://scripts/ghost_npc.dch", "res://scripts/ghost_text.dtl", "res://scripts/penguin_husband.dch", "res://scripts/penguin_wife.dch", "res://scripts/penguin_husband_text.dtl", "res://scripts/penguin_wife_text.dtl"]
 layout/mode=0
 variables={
 "Obake NPC": {

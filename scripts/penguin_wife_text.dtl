@@ -3,5 +3,22 @@ if {penguins.letter_collected} == "false":
 	player: Hello! \:) I love your house!
 	penguin_wife: Thank you! My husband helped me decorate \:)
 	player: It's so pretty!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {penguins.letter_delivered} == "false":
+	player: Hello! I have a letter for you \:)
+	penguin_wife: Oh! Thank you! It's a gift for my husband
+	player: That's so sweet!
+	penguin_wife: He helps so much around the house \:D He's very kind
+	player: I hope he likes the present!!
+	penguin_wife: Me too! \:)
+	VAR {dialog_open} = "closed"
+	VAR {penguins.letter_delivered} = "true"
+	[end_timeline]
+elif {penguins.letter_delivered} == "true":
+	player: Did your husband like his gift? \:)
+	penguin_wife: He did! Thank you so much for delivering it!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

@@ -4,5 +4,21 @@ if {penguins.letter_collected} == "false":
 	penguin_husband: You're in my garden
 	player: Whoops! Sorry!!
 	penguin_husband: That's fine just don't tell my wife
+elif {penguins.letter_delivered} == "false":
+	player: Hi! I have a letter for you!!
+	penguin_husband: Oh, this is for my wife, you can find her inside
+	player: Oh! Okay! Thank!!
+	penguin_husband: Wipe your paws before walking in the house please
+	penguin_husband: I just cleaned the floor
+	player: Hehe, sure!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {penguins.letter_delivered} == "true":
+	player: Hehehe \:3
+	penguin_husband: Thank you for delivering the parcel to my wife \:)
+	player: Hehehe!!
+	penguin_husband: I hope you have a lovely day!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

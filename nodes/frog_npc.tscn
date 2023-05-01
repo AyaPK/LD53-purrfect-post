@@ -54,7 +54,7 @@ animations = [{
 radius = 6.08276
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glb3s"]
-size = Vector2(38, 32)
+size = Vector2(70, 53)
 
 [node name="frog_npc" type="StaticBody2D"]
 
@@ -73,5 +73,5 @@ shape = SubResource("CircleShape2D_ampkx")
 script = ExtResource("2_2dp8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
-position = Vector2(0, -6)
+position = Vector2(7, -4.5)
 shape = SubResource("RectangleShape2D_glb3s")
