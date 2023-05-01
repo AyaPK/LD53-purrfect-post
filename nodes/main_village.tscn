@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bg2bxvrs01lgb"]
+[gd_scene load_steps=46 format=3 uid="uid://bg2bxvrs01lgb"]
 
 [ext_resource type="Script" path="res://nodes/main_village.gd" id="1_pj564"]
 [ext_resource type="Texture2D" uid="uid://by50a2ghbwser" path="res://art/PathAndObjects.png" id="1_r7qum"]
@@ -17,8 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://bklnkupgvf7ds" path="res://nodes/obake.tscn" id="16_v7l1v"]
 [ext_resource type="PackedScene" uid="uid://dpk4m1f5pc8dl" path="res://nodes/penguin.tscn" id="17_o1hr0"]
 [ext_resource type="PackedScene" uid="uid://bu6egdubljhsy" path="res://nodes/monkey.tscn" id="18_2hy2p"]
+[ext_resource type="PackedScene" uid="uid://cofjvsxd3c6pd" path="res://nodes/pommy_house_sign.tscn" id="18_4gxmg"]
+[ext_resource type="PackedScene" uid="uid://c7amnsdx5pbjk" path="res://nodes/chick_npc.tscn" id="18_8e1lf"]
 [ext_resource type="PackedScene" uid="uid://c3mdn1qngk414" path="res://nodes/ghost.tscn" id="19_eta20"]
+[ext_resource type="PackedScene" uid="uid://dvp8wc5pywmsw" path="res://nodes/rat_npc.tscn" id="20_yyao0"]
 [ext_resource type="PackedScene" uid="uid://dgyeci21utb5v" path="res://nodes/owl.tscn" id="21_ceqws"]
+[ext_resource type="PackedScene" uid="uid://ddjguuvxxxeya" path="res://nodes/duck_house_sign.tscn" id="23_6gov4"]
+[ext_resource type="PackedScene" uid="uid://u0gg7rpvqito" path="res://nodes/turtle_house_sign.tscn" id="24_2nsc3"]
+[ext_resource type="PackedScene" uid="uid://68gbv51ngilk" path="res://nodes/penguin_house_sign.tscn" id="25_aatlo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o87ck"]
 texture = ExtResource("1_r7qum")
@@ -1642,7 +1648,7 @@ shape = SubResource("RectangleShape2D_reki7")
 position = Vector2(748, -14)
 
 [node name="penguin" parent="." instance=ExtResource("17_o1hr0")]
-position = Vector2(431, -377)
+position = Vector2(483, -367)
 
 [node name="monkey" parent="." instance=ExtResource("18_2hy2p")]
 position = Vector2(-67, -506)
@@ -1650,9 +1656,28 @@ position = Vector2(-67, -506)
 [node name="ghost" parent="." instance=ExtResource("19_eta20")]
 position = Vector2(625, -522)
 
-[node name="owl" parent="." instance=ExtResource("21_ceqws")]
-position = Vector2(-97, -229)
+[node name="pommy_house_sign" parent="." instance=ExtResource("18_4gxmg")]
+position = Vector2(-271, 60)
+
+[node name="chick_npc" parent="." instance=ExtResource("18_8e1lf")]
+position = Vector2(512, -115)
 scale = Vector2(1.294, 1.294)
+
+[node name="owl" parent="." instance=ExtResource("21_ceqws")]
+position = Vector2(-101, -234)
+scale = Vector2(1.294, 1.294)
+
+[node name="rat_npc" parent="." instance=ExtResource("20_yyao0")]
+position = Vector2(-557, -617)
+
+[node name="duck_house_sign" parent="." instance=ExtResource("23_6gov4")]
+position = Vector2(336, -16)
+
+[node name="turtle_house_sign" parent="." instance=ExtResource("24_2nsc3")]
+position = Vector2(-496, -431)
+
+[node name="penguin_house_sign" parent="." instance=ExtResource("25_aatlo")]
+position = Vector2(400, -399)
 
 [node name="player" parent="." instance=ExtResource("5_p42q1")]
 y_sort_enabled = true

@@ -39,7 +39,7 @@ animations = [{
 radius = 7.07107
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11lo3"]
-size = Vector2(52, 100)
+size = Vector2(195, 168)
 
 [node name="owl" type="StaticBody2D"]
 
@@ -57,5 +57,5 @@ shape = SubResource("CircleShape2D_ts23i")
 script = ExtResource("2_qg5wq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 19)
+position = Vector2(-10.5, 5)
 shape = SubResource("RectangleShape2D_11lo3")

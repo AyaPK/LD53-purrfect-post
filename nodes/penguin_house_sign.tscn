@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://68gbv51ngilk"]
+
+[ext_resource type="Script" path="res://penguin_sign.gd" id="1_edji1"]
+[ext_resource type="Texture2D" uid="uid://owlfsjnhjx5b" path="res://art/signs.png" id="1_fctox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fgao"]
+atlas = ExtResource("1_fctox")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w253y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fgao")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vglmx"]
+size = Vector2(66, 68)
+
+[node name="penguin_house_sign" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w253y")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -14, -13, -14, -13, 7, -2, 7, -2, 16, 4, 16, 4, 7, 15, 7, 15, -14)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_edji1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vglmx")

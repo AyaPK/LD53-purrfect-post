@@ -5,8 +5,8 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
-func play_sfx(name, vol):
-	var audio = load("res://sounds/"+name+".mp3")
+func play_sfx(sound_name, vol):
+	var audio = load("res://sounds/"+sound_name+".mp3")
 	$Music.stream = audio
 	$Music.volume_db = vol
 	$Music.play()

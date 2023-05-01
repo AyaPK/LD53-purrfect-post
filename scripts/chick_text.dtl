@@ -1,0 +1,7 @@
+blank
+chick: This is my garden!
+player: Haha, be careful little dude, there's a lot of rocks!
+chick: They're like big mountains!! \:D
+player: You go lil guy!! \:D
+VAR {dialog_open} = "closed"
+[end_timeline]

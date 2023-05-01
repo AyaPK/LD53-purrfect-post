@@ -54,6 +54,7 @@ shape = SubResource("CircleShape2D_wk1se")
 
 [node name="talk_area" type="Area2D" parent="."]
 script = ExtResource("2_dpe8m")
+reading = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
 position = Vector2(0, -5.5)

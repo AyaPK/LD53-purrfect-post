@@ -1,0 +1,5 @@
+blank
+rat_npc: Oh! You found me!!
+player: Haha hello!!
+VAR {dialog_open} = "closed"
+[end_timeline]

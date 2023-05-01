@@ -17,5 +17,10 @@ elif {pommy_npc.letter_delivered} == "false":
 	VAR {dialog_open} = "closed"
 	VAR {pommy_npc.letter_delivered} = "true"
 	[end_timeline]
+elif {pommy_npc.letter_delivered} == "true":
+	player: Your hair is so pretty!!!
+	pommy: Thank you! \:) I work hard on it \:)
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

@@ -1,0 +1,4 @@
+blank
+sign: Duck's House
+VAR {dialog_open} = "closed"
+[end_timeline]

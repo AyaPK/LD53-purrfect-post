@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://u0gg7rpvqito"]
+
+[ext_resource type="Texture2D" uid="uid://owlfsjnhjx5b" path="res://art/signs.png" id="1_q67kg"]
+[ext_resource type="Script" path="res://nodes/turtle_sign.gd" id="2_ida6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42xu0"]
+atlas = ExtResource("1_q67kg")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ysdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42xu0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trai3"]
+size = Vector2(68, 68)
+
+[node name="turtle_house_sign" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0ysdn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -14, -14, -14, -14, 7, -2, 7, -2, 17, 4, 17, 4, 7, 16, 7, 16, -14)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ida6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_trai3")

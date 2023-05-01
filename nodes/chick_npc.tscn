@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7amnsdx5pbjk"]
+
+[ext_resource type="Texture2D" uid="uid://dvq6bem67uief" path="res://art/chicks.png" id="1_biyl1"]
+[ext_resource type="Script" path="res://nodes/chick.gd" id="2_r8jot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqnqd"]
+atlas = ExtResource("1_biyl1")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm0qk"]
+atlas = ExtResource("1_biyl1")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiej3"]
+atlas = ExtResource("1_biyl1")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpqba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqnqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm0qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiej3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm0qk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1kab"]
+radius = 5.09902
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvdg7"]
+size = Vector2(67, 67)
+
+[node name="chick_npc" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_mpqba")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_q1kab")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_r8jot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_gvdg7")
