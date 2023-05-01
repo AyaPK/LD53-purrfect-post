@@ -162,5 +162,33 @@ elif {penguins.letter_delivered} == "false":
 	player: But it's so fun!!!
 	VAR {dialog_open} = "closed"
 	[end_timeline]
+elif {monkey.letter_collected} == "false":
+	player: Hey pal!
+	bongo_cat: Welcome back!! We don't have many letters left \:o
+	player: Aw but I'm having so much fun!
+	bongo_cat: Okay would you like another? \:3
+	player: pls!
+	bongo_cat: Fantastic okay this one is for the monkey \:) He lives near the woods!
+	player: I've got this!!!
+	VAR {dialog_open} = "closed"
+	VAR {monkey.letter_collected} = "true"
+	[end_timeline]
+elif {monkey.letter_delivered} == "false":
+	bongo_cat: Did you find the Monkey? \:)
+	player: No! I forgot where he is!
+	bongo_cat: You should find him near the woods \:)
+	player: Thank!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {monkey.letter_delivered} == "true":
+	bongo_cat: Hey Pearl!
+	player: Hi! I'm ready for a new letter \:)
+	bongo_cat: Oh, this is the last one! Here you go \:3
+	player: Who is this for...?
+	player: Oh! It's for me!!
+	bongo_cat: You should read it now! \:D
+	VAR {plot.finished_game} = "true"
+[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]
+

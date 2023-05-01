@@ -1,0 +1,27 @@
+blank
+if {monkey.letter_collected} == "false":
+	player: Hello friend! I'm new, where do you live? \:D
+	monkeu: Right here in the trees!!
+	player: Oh my gosh that's so cool!?
+	monkeu: Haha yeah! It's so fun!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {monkey.letter_delivered} == "false":
+	player: Heya buddy!
+	monkeu: Hey! Ooo is that letter for me? \:o
+	player: Omg it is!! I brought it for you \:)
+	monkeu: Thank you!! It's the banana coupon I ordered!
+	player: \:o I love banan!!!
+	monkeu: Me too!
+	Hehehe enjoy your food friendo <3
+	VAR {dialog_open} = "closed"
+	VAR {monkey.letter_delivered} = "true"
+	[end_timeline]
+elif {monkey.letter_delivered} == "true":
+	monkeu: *monch monch monch*
+	monkeu: *monch monch*
+	monkeu: Thanks again for the delivery pearls!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+VAR {dialog_open} = "closed"
+[end_timeline]

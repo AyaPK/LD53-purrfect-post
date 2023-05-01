@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://64tuk8w8ig3t"]
+
+[ext_resource type="Script" path="res://nodes/letter_scene.gd" id="1_gsj05"]
+[ext_resource type="Script" path="res://nodes/AnimationPlayer.gd" id="1_hpk6m"]
+[ext_resource type="Texture2D" uid="uid://dn4o6in17wrno" path="res://art/pearls_letter.png" id="1_qsed3"]
+
+[sub_resource type="Animation" id="Animation_eh0hi"]
+resource_name = "letter_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PearlsLetter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PearlsLetter:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yoklo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PearlsLetter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PearlsLetter:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pkcr"]
+_data = {
+"RESET": SubResource("Animation_yoklo"),
+"letter_fade_in": SubResource("Animation_eh0hi")
+}
+
+[node name="letter_scene" type="Node2D"]
+script = ExtResource("1_gsj05")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7pkcr")
+}
+script = ExtResource("1_hpk6m")
+
+[node name="PearlsLetter" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(331, 179)
+scale = Vector2(0.143739, 0.143739)
+texture = ExtResource("1_qsed3")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

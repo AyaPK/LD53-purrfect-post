@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://qnjpnnxqyxk8"]
+[gd_scene load_steps=13 format=3 uid="uid://qnjpnnxqyxk8"]
 
 [ext_resource type="Texture2D" uid="uid://c5vsigid3pxnm" path="res://art/2_indoors.png" id="1_nv61e"]
 [ext_resource type="Script" path="res://nodes/post_office_interior.gd" id="1_t746r"]
 [ext_resource type="PackedScene" uid="uid://u5hoq4v423bk" path="res://nodes/player.tscn" id="2_t3jil"]
 [ext_resource type="PackedScene" uid="uid://bvjm4juoj2o41" path="res://nodes/bongo_cat.tscn" id="4_rrrct"]
+[ext_resource type="PackedScene" uid="uid://64tuk8w8ig3t" path="res://nodes/letter_scene.tscn" id="5_ic53c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvlv0"]
 texture = ExtResource("1_nv61e")
@@ -1308,5 +1309,8 @@ shape = SubResource("RectangleShape2D_tk3fg")
 
 [node name="bongo_cat" parent="." instance=ExtResource("4_rrrct")]
 position = Vector2(329, 120)
+
+[node name="letter_scene" parent="." instance=ExtResource("5_ic53c")]
+visible = false
 
 [connection signal="body_entered" from="leave_scene" to="." method="_on_leave_scene_body_entered"]

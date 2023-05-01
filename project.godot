@@ -22,16 +22,17 @@ DialogueScript="*res://scripts/dialogue_script.gd"
 States="*res://scripts/states.gd"
 MusicController="*res://autoloads/MusicController.tscn"
 SfxController="*res://autoloads/SFXController.tscn"
+TransitionScreen="res://transition_screen.tscn"
 
 [dialogic]
 
 editor/character_preview_mode=0
 editor/current_editor=&"VariablesEditor"
 editor/current_resources={
-"Character Editor": "res://scripts/penguin_wife.dch",
-"Timeline Editor": "res://scripts/penguin_wife_text.dtl"
+"Character Editor": "res://dialogic/player.dch",
+"Timeline Editor": "res://scripts/bongo_cat_timeline.dtl"
 }
-editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch", "res://scripts/obake_npc.dch", "res://scripts/obake_text.dtl", "res://scripts/owl_npc.dch", "res://scripts/owl_npc.dtl", "res://scripts/ghost_npc.dch", "res://scripts/ghost_text.dtl", "res://scripts/penguin_husband.dch", "res://scripts/penguin_wife.dch", "res://scripts/penguin_husband_text.dtl", "res://scripts/penguin_wife_text.dtl", "")
+editor/last_resources=PackedStringArray("res://dialogic/sign.dch", "res://dialogic/sign_text.dtl", "res://dialogic/player.dch", "res://scripts/to_village_sign_text.dtl", "res://scripts/frog_npc_dialog.dtl", "res://scripts/frog_npc.dch", "res://scripts/cat_planet_cat_npc.dch", "res://scripts/cat_planet_cat_text.dtl", "res://addons/dialogic/Example Assets/portraits/Princess/movement_stopper_first.dtl", "res://scripts/bongo_cat.dch", "res://scripts/bongo_cat_timeline.dtl", "res://duck_npc_text.dtl", "res://scripts/duck.dch", "res://scripts/turtle_npc.dch", "res://scripts/turtle_timeline.dtl", "res://scripts/pommy_npc_text.dtl", "res://scripts/pommy.dch", "res://scripts/obake_npc.dch", "res://scripts/obake_text.dtl", "res://scripts/owl_npc.dch", "res://scripts/owl_npc.dtl", "res://scripts/ghost_npc.dch", "res://scripts/ghost_text.dtl", "res://scripts/penguin_husband.dch", "res://scripts/penguin_wife.dch", "res://scripts/penguin_husband_text.dtl", "res://scripts/penguin_wife_text.dtl", "res://scripts/monkeu.dch", "res://scripts/monkey_text.dtl", "")
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
 animations/leave_default_wait=true
@@ -48,41 +49,47 @@ editor/last/resources=["res://dialogic/sign.dch", "res://dialogic/sign_text.dtl"
 layout/mode=0
 variables={
 "Obake NPC": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "cat_planet": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "dialog_open": "closed",
 "duck_npc": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "frog_npc": {
-"letter_delivered": "true",
-"spoken_before": "true"
+"letter_delivered": "false",
+"spoken_before": "false"
+},
+"monkey": {
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "owl_npc": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "penguins": {
 "letter_collected": "false",
 "letter_delivered": "false"
 },
 "plot": {
-"been_to_house": "true",
-"first_load": "true"
+"been_to_house": "false",
+"finished_game": "false",
+"first_load": "false",
+"letter_displayed": "false"
 },
 "pommy_npc": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 },
 "turtle_npc": {
-"letter_collected": "true",
-"letter_delivered": "true"
+"letter_collected": "false",
+"letter_delivered": "false"
 }
 }
 editor/visual_timeline_editor_sidebar=197.0
@@ -98,7 +105,7 @@ layout/export_overrides={
 "text_size": "15.0"
 }
 text/autocolor_names=false
-editor/timeline_editor_mode=0
+editor/timeline_editor_mode=1
 editor/current_timeline_path="res://scripts/turtle_timeline.dtl"
 
 [display]

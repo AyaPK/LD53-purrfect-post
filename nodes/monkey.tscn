@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu6egdubljhsy"]
+[gd_scene load_steps=9 format=3 uid="uid://bu6egdubljhsy"]
 
 [ext_resource type="Texture2D" uid="uid://dthqa2pwi2wk2" path="res://art/monkeys.png" id="1_i78a6"]
+[ext_resource type="Script" path="res://nodes/monkey_text.gd" id="2_qs40f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcp5y"]
 atlas = ExtResource("1_i78a6")
@@ -52,6 +53,7 @@ frame_progress = 0.293155
 shape = SubResource("CircleShape2D_gkv7n")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qs40f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -6)

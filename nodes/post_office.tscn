@@ -1,6 +1,7 @@
-[gd_scene load_steps=138 format=3 uid="uid://bkdsiasmmcxv3"]
+[gd_scene load_steps=139 format=3 uid="uid://bkdsiasmmcxv3"]
 
 [ext_resource type="Texture2D" uid="uid://dx8w732efsds" path="res://art/1_terrain.png" id="1"]
+[ext_resource type="Script" path="res://nodes/post_office.gd" id="1_l87yu"]
 [ext_resource type="Texture2D" uid="uid://dtr7og6phuh0p" path="res://art/7_grass_cliff.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bnye8o7hi0ka5" path="res://art/11_roofs.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b5cmo7agcmv7c" path="res://art/4_buildings.png" id="4"]
@@ -3448,6 +3449,7 @@ sources/22 = SubResource("TileSetAtlasSource_4san2")
 sources/23 = SubResource("TileSetAtlasSource_b5x6x")
 
 [node name="Post Office" type="Node2D"]
+script = ExtResource("1_l87yu")
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("1")

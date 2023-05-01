@@ -3,7 +3,7 @@
 "@subpath": NodePath(""),
 "color": Color(1, 1, 1, 1),
 "custom_info": {
-"sound_mood_default": "default",
+"sound_mood_default": "",
 "sound_moods": {
 "default": {
 "name": "default",

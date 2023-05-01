@@ -28,3 +28,6 @@ func play_title_music():
 		$Music.stream = title_music
 		$Music.volume_db = 0
 		$Music.play()
+
+func fade_out():
+	$AnimationPlayer.play("fade_out_music")
