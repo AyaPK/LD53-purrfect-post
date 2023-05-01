@@ -6,7 +6,7 @@ func _ready():
 	States.current_scene = "turtle_house"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	change_scenes()
 
 func _on_leave_area_body_entered(body):

@@ -1,0 +1,21 @@
+blank
+if {Obake NPC.letter_collected} == "false":
+	obake_npc: This is my home.
+	player: You live in a cave? \:o So cool!!
+	obake_npc: Thank, feel free to look around.
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {Obake NPC.letter_delivered} == "false":
+	player: Heya friendo!!
+	obake_npc: Hi
+	player: I have a letter for you!
+	obake_npc: Oh my minerals arrived, thank.
+	player: You got minerals? \:o
+	obake_npc: Yes I love shiny stones, I have a collection inside if you'd like to see.
+	player: Oh man that's so cool, I'll definitely take a look, thank!!
+	obake_npc: I hope you like them.
+	VAR {dialog_open} = "closed"
+	VAR {Obake NPC.letter_delivered} = "true"
+	[end_timeline]
+VAR {dialog_open} = "closed"
+[end_timeline]

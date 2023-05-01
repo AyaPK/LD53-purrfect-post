@@ -11,11 +11,20 @@ elif {duck_npc.letter_delivered} == "false":
 	duck: Hello! *QUACK*
 	player: Haha!! Q U A C K Q U A C K !!!!
 	player: I have a letter for you!! *quack*
+	duck: Yay! It's from my son! \:D
+	player: That's so cute!!!
+	He's in school \:) I'm very proud of him!
+	player: I can't wait to meet him one day \:D
+	duck: I'm sure you'll be best friends \:o
+	player: hehe!
+	player: (I should go and see the mailcat again)
 	VAR {duck_npc.letter_delivered} = "true"
 	VAR {dialog_open} = "closed"
 	[end_timeline]
 elif {duck_npc.letter_delivered} == "true":
 	player: Hey again duck friend!! *quack quack*
 	duck: Hehe hello!! *QUACK!!*
+	player: How is little duckling doing? \:D
+	duck: He's doing great thank you!!
 VAR {dialog_open} = "closed"
 [end_timeline]

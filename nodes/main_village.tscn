@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bg2bxvrs01lgb"]
+[gd_scene load_steps=40 format=3 uid="uid://bg2bxvrs01lgb"]
 
 [ext_resource type="Script" path="res://nodes/main_village.gd" id="1_pj564"]
 [ext_resource type="Texture2D" uid="uid://by50a2ghbwser" path="res://art/PathAndObjects.png" id="1_r7qum"]
@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://bnye8o7hi0ka5" path="res://art/11_roofs.png" id="7_h28we"]
 [ext_resource type="PackedScene" uid="uid://x4oxo0tsofgk" path="res://nodes/cat_planet_cat.tscn" id="8_nse88"]
 [ext_resource type="Texture2D" uid="uid://owlfsjnhjx5b" path="res://art/signs.png" id="10_0q7uk"]
-[ext_resource type="PackedScene" uid="uid://cv8ltnjoiu0k2" path="res://nodes/pommy.tscn" id="15_s6pi1"]
 [ext_resource type="PackedScene" uid="uid://bklnkupgvf7ds" path="res://nodes/obake.tscn" id="16_v7l1v"]
 [ext_resource type="PackedScene" uid="uid://dpk4m1f5pc8dl" path="res://nodes/penguin.tscn" id="17_o1hr0"]
 [ext_resource type="PackedScene" uid="uid://bu6egdubljhsy" path="res://nodes/monkey.tscn" id="18_2hy2p"]
+[ext_resource type="PackedScene" uid="uid://c3mdn1qngk414" path="res://nodes/ghost.tscn" id="19_eta20"]
+[ext_resource type="PackedScene" uid="uid://mdftroo5sgq2" path="res://nodes/penguin_wife.tscn" id="20_pxyi2"]
+[ext_resource type="PackedScene" uid="uid://dgyeci21utb5v" path="res://nodes/owl.tscn" id="21_ceqws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o87ck"]
 texture = ExtResource("1_r7qum")
@@ -1267,6 +1269,9 @@ size = Vector2(29, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmqw"]
 size = Vector2(32, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2kkg"]
+size = Vector2(31, 5)
+
 [node name="main_village" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_pj564")
@@ -1315,10 +1320,6 @@ position = Vector2(320, 192)
 
 [node name="cat_planet_npc_1" parent="." instance=ExtResource("8_nse88")]
 position = Vector2(-331, 231)
-
-[node name="pommy" parent="." instance=ExtResource("15_s6pi1")]
-texture_filter = 1
-position = Vector2(-227, 98)
 
 [node name="collision" type="StaticBody2D" parent="."]
 visible = false
@@ -1624,9 +1625,11 @@ shape = SubResource("RectangleShape2D_w28hi")
 position = Vector2(-465, -462)
 shape = SubResource("RectangleShape2D_lxmqw")
 
-[node name="player" parent="." instance=ExtResource("5_p42q1")]
-y_sort_enabled = true
-position = Vector2(359, 184)
+[node name="pommy_house_transition" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pommy_house_transition"]
+position = Vector2(-209.5, 17)
+shape = SubResource("RectangleShape2D_c2kkg")
 
 [node name="obake" parent="." instance=ExtResource("16_v7l1v")]
 position = Vector2(748, -14)
@@ -1637,7 +1640,23 @@ position = Vector2(442, -392)
 [node name="monkey" parent="." instance=ExtResource("18_2hy2p")]
 position = Vector2(-67, -506)
 
+[node name="ghost" parent="." instance=ExtResource("19_eta20")]
+position = Vector2(625, -522)
+
+[node name="penguin_wife" parent="." instance=ExtResource("20_pxyi2")]
+position = Vector2(523, -387)
+scale = Vector2(1.294, 1.294)
+
+[node name="owl" parent="." instance=ExtResource("21_ceqws")]
+position = Vector2(-97, -229)
+scale = Vector2(1.294, 1.294)
+
+[node name="player" parent="." instance=ExtResource("5_p42q1")]
+y_sort_enabled = true
+position = Vector2(359, 184)
+
 [connection signal="body_entered" from="cave_transition" to="." method="_on_cave_transition_body_entered"]
 [connection signal="body_entered" from="world_transition" to="." method="_on_world_transition_body_entered"]
 [connection signal="body_entered" from="duck_house_transition" to="." method="_on_duck_house_transition_body_entered"]
 [connection signal="body_entered" from="turtle_house_transition" to="." method="_on_turtle_house_transition_body_entered"]
+[connection signal="body_entered" from="pommy_house_transition" to="." method="_on_pommy_house_transition_body_entered"]

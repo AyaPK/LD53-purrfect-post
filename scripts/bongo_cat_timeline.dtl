@@ -60,4 +60,67 @@ if {duck_npc.letter_delivered} == "false":
 	player: Bye!!
 	VAR {dialog_open} = "closed"
 	[end_timeline]
+elif {turtle_npc.letter_collected} == "false":
+	bongo_cat: Heya P buddy!
+	player: Hey Mailbro!
+	bongo_cat: How did the duck delivery go?? \:D
+	player: It went great! He was so happy ^_^
+	bongo_cat: Heck yeah!! Are you ready for another? \:3
+	player: Let's do it! Where to next!?
+	bongo_cat: This one is for our oldest resident, Ms. Turtle!
+	player: Oooo she sounds so cool!
+	bongo_cat: She's great! Say hello for me!
+	player: Sure thing friendo!! \:)
+	VAR {turtle_npc.letter_collected} = "true"
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {turtle_npc.letter_delivered} == "false":
+	bongo_cat: Hey P.dawg how is the delivery going?
+	player: What's up Mailfriend!! I am going there soon, just vibin' now \:)
+	bongo_cat: Chill out here as long as you like friend!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {pommy_npc.letter_collected} == "false":
+	bongo_cat: Yooo what's up!!
+	player: Haha heya dude!
+	bongo_cat: Did you meet Ms. Turtle? \:D
+	player: Yeah! She's so chill! I wanna eat food with her
+	bongo_cat: She'd love that!
+	bongo_cat: Anwyay, new letter time buddy?
+	player: You know it!!!
+	bongo_cat: Rad! Okay this one is for Pommy \:D They live in the house near the farm!
+	player: I'm already on the way!!
+	VAR {dialog_open} = "closed"
+	VAR {pommy_npc.letter_collected} = "true"
+	[end_timeline]
+elif {pommy_npc.letter_delivered} == "false":
+	bongo_cat: Did you meet Pommy yet? \:o
+	player: Nah man I've been chillin'
+	bongo_cat: Haha that's pretty cool! Make sure to relax \:)
+	player: Good advice!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
+elif {Obake NPC.letter_collected} == "false":
+	bongo_cat: Here she comes! Back from another delivery!!
+	player: Yes! Here I am! Back from another delivery!! \:D
+	bongo_cat: How did it go with Pommy???
+	player: They're so pretty!! They gave me cool advice \:)
+	bongo_cat: That's so cute! I'm glad they were nice to you \:3
+	bongo_cat: Ready for another letter?
+	player: You know it friend!!
+	bongo_cat: Awesome!! Okay this one is for the Obake!
+	player: Obake? \:o
+	bongo_cat: Obake is a pretty cool guys, eh lives in a cave and doesn't afraid of anything \:)
+	player: Haha, cave! Got it!
+	VAR {dialog_open} = "closed"
+	VAR {Obake NPC.letter_collected} = "true"
+	[end_timeline]
+elif {Obake NPC.letter_delivered} == "false":
+	bongo_cat: Did you meet the funky obake dude yet?
+	player: Not yet! Where did you say he lives again?
+	bongo_cat: In the cave! You'll know him when you see him \:)
+	player: Okay thank you!!
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
+[end_timeline]

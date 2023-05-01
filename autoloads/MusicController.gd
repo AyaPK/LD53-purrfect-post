@@ -2,6 +2,7 @@ extends Node2D
 
 var main_music = load("res://sounds/main_music.mp3")
 var cave_music = load("res://sounds/cave_music.mp3")
+var title_music = load("res://sounds/title_bgm.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,4 +20,11 @@ func play_cave_music():
 		States.current_music = "cave_music"
 		$Music.stream = cave_music
 		$Music.volume_db = -12
+		$Music.play()
+
+func play_title_music():
+	if States.current_music != "title_music":
+		States.current_music = "title_music"
+		$Music.stream = title_music
+		$Music.volume_db = 0
 		$Music.play()

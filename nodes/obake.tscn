@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bklnkupgvf7ds"]
+[gd_scene load_steps=9 format=3 uid="uid://bklnkupgvf7ds"]
 
 [ext_resource type="Texture2D" uid="uid://ctrsjjmc8yyl" path="res://art/obake.png" id="1_m47c0"]
+[ext_resource type="Script" path="res://nodes/obake_talk.gd" id="2_knjbo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsn5u"]
 atlas = ExtResource("1_m47c0")
@@ -54,6 +55,7 @@ position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_kgxn1")
 
 [node name="talk_area" type="Area2D" parent="."]
+script = ExtResource("2_knjbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
 position = Vector2(0, -9)

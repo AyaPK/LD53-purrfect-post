@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://mdftroo5sgq2"]
+
+[ext_resource type="Texture2D" uid="uid://t4so4noxfmk7" path="res://art/penguins.png" id="1_iad87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ve1y"]
+atlas = ExtResource("1_iad87")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3ss"]
+atlas = ExtResource("1_iad87")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptjfo"]
+atlas = ExtResource("1_iad87")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnyco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ve1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptjfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3ss")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndiq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbm2p"]
+size = Vector2(46, 63)
+
+[node name="penguin_wife" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_bnyco")
+autoplay = "default"
+frame_progress = 0.247396
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_ndiq4")
+
+[node name="talk_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talk_area"]
+position = Vector2(1, -4.5)
+shape = SubResource("RectangleShape2D_qbm2p")

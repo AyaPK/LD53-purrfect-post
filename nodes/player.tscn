@@ -257,6 +257,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("33")
 
 [node name="world_camera" type="Camera2D" parent="."]
+visible = false
 position = Vector2(248, 176)
 limit_left = -104
 limit_top = 64
@@ -264,6 +265,7 @@ limit_right = 580
 limit_bottom = 590
 
 [node name="post_office_interior_camera" type="Camera2D" parent="."]
+visible = false
 position = Vector2(249, 184)
 zoom = Vector2(2, 2)
 
@@ -297,3 +299,11 @@ limit_left = 40
 limit_top = -90
 limit_right = 420
 limit_bottom = 320
+
+[node name="pommy_house_interior_camera" type="Camera2D" parent="."]
+position = Vector2(249, 184)
+zoom = Vector2(2, 2)
+limit_left = 9
+limit_top = -240
+limit_right = 650
+limit_bottom = 240

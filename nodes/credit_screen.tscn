@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqg0w0034cwoi"]
+
+[ext_resource type="Script" path="res://nodes/credit_screen.gd" id="1_5wt3x"]
+[ext_resource type="Texture2D" uid="uid://dpncd4tjln864" path="res://art/title_bg.png" id="1_tjhqt"]
+[ext_resource type="Texture2D" uid="uid://cs1f03hu48co1" path="res://art/title_bacl.png" id="2_ftfy7"]
+[ext_resource type="Texture2D" uid="uid://coaiveeuuiq4x" path="res://art/title_credits_text.png" id="4_lgcka"]
+
+[node name="credit_screen" type="Node2D"]
+script = ExtResource("1_5wt3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(302.933, 210)
+scale = Vector2(0.591667, 0.591667)
+texture = ExtResource("1_tjhqt")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 220.0
+offset_top = 321.0
+offset_right = 339.0
+offset_bottom = 375.0
+
+[node name="TitleBacl" type="Sprite2D" parent="TextureButton"]
+position = Vector2(80, 49)
+scale = Vector2(0.377004, 0.38106)
+texture = ExtResource("2_ftfy7")
+
+[node name="TitleCreditsText" type="Sprite2D" parent="."]
+position = Vector2(322, 188)
+scale = Vector2(0.503472, 0.503472)
+texture = ExtResource("4_lgcka")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

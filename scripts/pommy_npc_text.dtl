@@ -1,1 +1,21 @@
 blank
+if {pommy_npc.letter_collected} == "false":
+	pommy: Hello friend! I don't recognise you!
+	player: I'm new! I'm helping the mailcat \:)
+	pommy: Oh that sounds fun!! Let me know if you want some help \:)
+	player: Thank!!
+elif {pommy_npc.letter_delivered} == "false":
+	player: Hello Pommy! You're so pretty!
+	pommy: Thank \:) Who are you? \:D
+	player: I'm pearl! I have a letter for you from Mailcat \:3
+	pommy: Nice to meet you, pearly \:) Thank you for the letter!
+	player: Any time!
+	player: How do you keep your long hair so pretty \:o
+	pommy: I brush it every day and make sure to avoid dirt!
+	player: Ooo I see!!
+	player: (But I like playing in dirt... \:c)
+	VAR {dialog_open} = "closed"
+	VAR {pommy_npc.letter_delivered} = "true"
+	[end_timeline]
+VAR {dialog_open} = "closed"
+[end_timeline]

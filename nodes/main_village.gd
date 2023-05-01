@@ -15,6 +15,9 @@ func _ready():
 	elif States.previous_scene == "turtle_house":
 		$player.position.x = States.player_exit_turtle_house_x
 		$player.position.y = States.player_exit_turtle_house_y
+	elif States.previous_scene == "pommy_house":
+		$player.position.x = States.player_exit_pommy_house_x
+		$player.position.y = States.player_exit_pommy_house_y
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +40,10 @@ func _on_turtle_house_transition_body_entered(body):
 	if body.has_method("player"):
 		States.transition_scene_to_turtle_house = true
 
+func _on_pommy_house_transition_body_entered(body):
+	if body.has_method("player"):
+		States.transition_scene_to_pommy_house = true
+
 func change_scenes():
 	if States.transition_scene_to_cave_interior:
 		get_tree().change_scene_to_file("res://nodes/cave_interior.tscn")
@@ -50,6 +57,11 @@ func change_scenes():
 	elif States.transition_scene_to_turtle_house:
 		get_tree().change_scene_to_file("res://nodes/turtle_house.tscn")
 		States.finish_changing_scenes("turtle_house")
+	elif States.transition_scene_to_pommy_house:
+		get_tree().change_scene_to_file("res://nodes/pommy_house.tscn")
+		States.finish_changing_scenes("pommy_house")
+
+
 
 
 

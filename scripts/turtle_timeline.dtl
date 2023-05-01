@@ -4,5 +4,24 @@ if {turtle_npc.letter_collected} == "false":
 	turtle_npc: Oh. Hello young one \:) Welcome to the village
 	player: I'm really excited to be here!!
 	turtle_npc: That's great \:) I will rest now, please visit any time
+elif {turtle_npc.letter_delivered} == "false":
+	player: Hello Ma'am! \:)
+	turtle_npc: Oh! What a polite young cat. What is your name dear?
+	player: Pearl! \:3
+	turtle_npc: It's lovely to meet you, polly. How can I help you?
+	player: I have a delivery for you!
+	turtle_npc: Oh that's lovely, I was waiting for this. Thank you so much peaches \:)
+	turtle_npc: Hehe, any time! Let me know if I can help you more!
+	turtle_npc: How lovely. Come back any time Pippa \:)
+	VAR {dialog_open} = "closed"
+	VAR {turtle_npc.letter_delivered} = "true"
+	[end_timeline]
+elif {turtle_npc.letter_delivered} == "true":
+	turtle_npc: Oh, hello there patricia
+	player: Hello Ms. Turtle \:)
+	turtle_npc: Thank you for stopping by to visit, please make yourself at home
+	player: Hehe, thank! \:D
+	VAR {dialog_open} = "closed"
+	[end_timeline]
 VAR {dialog_open} = "closed"
 [end_timeline]

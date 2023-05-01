@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://3nxmmeqw6j3t"]
+
+[ext_resource type="Script" path="res://nodes/title_screen.gd" id="1_78t02"]
+[ext_resource type="Texture2D" uid="uid://dpncd4tjln864" path="res://art/title_bg.png" id="1_5468v"]
+[ext_resource type="Texture2D" uid="uid://j62k14rj524y" path="res://art/title_text.png" id="2_8vn12"]
+[ext_resource type="Texture2D" uid="uid://bsb3gqjv3jgbf" path="res://art/title_credits.png" id="3_kg6y8"]
+[ext_resource type="Texture2D" uid="uid://df511srujq8nf" path="res://art/title_start_game.png" id="4_5ycfu"]
+
+[node name="Title_screen" type="Node2D"]
+script = ExtResource("1_78t02")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(302.933, 210)
+scale = Vector2(0.591667, 0.591667)
+texture = ExtResource("1_5468v")
+
+[node name="TitleText" type="Sprite2D" parent="."]
+position = Vector2(305, 114)
+scale = Vector2(0.697923, 0.697924)
+texture = ExtResource("2_8vn12")
+
+[node name="start_game_button" type="TextureButton" parent="."]
+offset_left = 168.0
+offset_top = 245.0
+offset_right = 444.0
+offset_bottom = 298.0
+
+[node name="TitleStartGame" type="Sprite2D" parent="start_game_button"]
+position = Vector2(139, 28)
+scale = Vector2(0.365948, 0.365948)
+texture = ExtResource("4_5ycfu")
+
+[node name="credit_screen_button" type="TextureButton" parent="."]
+offset_left = 237.0
+offset_top = 322.0
+offset_right = 395.0
+offset_bottom = 365.0
+
+[node name="TitleCredits" type="Sprite2D" parent="credit_screen_button"]
+position = Vector2(71, 14)
+scale = Vector2(0.291667, 0.291667)
+texture = ExtResource("3_kg6y8")
+
+[connection signal="pressed" from="start_game_button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="credit_screen_button" to="." method="_on_credit_screen_button_pressed"]
