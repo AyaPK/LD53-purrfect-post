@@ -1,1 +1,3 @@
+AnimatedTexture
+AnimationNode
 TileSet
